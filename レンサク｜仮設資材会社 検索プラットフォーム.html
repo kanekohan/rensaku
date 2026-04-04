@@ -1,0 +1,2245 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://kanekohan.github.io/rensaku/kasetsu-search.html -->
+<html lang="ja" style="--vsc-domain: &quot;kanekohan.github.io&quot;;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>レンサク｜仮設資材会社 検索プラットフォーム</title>
+<link href="./レンサク｜仮設資材会社 検索プラットフォーム_files/css2" rel="stylesheet">
+<style>
+:root {
+  --ink: #f0f6ff;
+  --ink-soft: #e4effc;
+  --steel: #c8ddf5;
+  --orange: #1a7fe8;
+  --orange-light: #3b97f7;
+  --yellow: #0ea5e9;
+  --white: #0d2a4e;
+  --white-dim: #1e4070;
+  --gray: #5a7fa8;
+  --gray-light: #93b8d8;
+  --card-bg: #ffffff;
+  --card-border: #c5dcf3;
+  --radius: 4px;
+  --radius-lg: 10px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+  background: #f0f6ff;
+  color: #0d2a4e;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── NOISE TEXTURE ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 40px;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(26,127,232,0.15);
+  box-shadow: 0 1px 12px rgba(26,127,232,0.08);
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 3px;
+  color: var(--white);
+}
+.nav-logo span { color: var(--orange); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  background: var(--orange);
+  color: white !important;
+  padding: 9px 20px;
+  border-radius: var(--radius);
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--orange-light) !important; color: white !important; }
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 40px 80px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #e8f3ff 0%, #f0f6ff 50%, #daeeff 100%);
+}
+
+.hero-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,127,232,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,127,232,0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.hero-bg-gradient {
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(26,127,232,0.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26,127,232,0.1);
+  border: 1px solid rgba(26,127,232,0.3);
+  color: #1a7fe8;
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  width: fit-content;
+  animation: fadeUp 0.6s ease both;
+}
+
+.hero-tag::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1a7fe8;
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(64px, 10vw, 130px);
+  line-height: 0.9;
+  letter-spacing: 2px;
+  margin-bottom: 28px;
+  animation: fadeUp 0.7s 0.1s ease both;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--orange);
+  display: block;
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: var(--gray);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+  animation: fadeUp 0.7s 0.2s ease both;
+}
+
+/* ─── SEARCH BOX ─── */
+.search-box {
+  background: #ffffff;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  max-width: 740px;
+  animation: fadeUp 0.7s 0.3s ease both;
+  box-shadow: 0 4px 24px rgba(26,127,232,0.1);
+}
+
+.search-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.search-input-wrap {
+  flex: 1;
+  position: relative;
+}
+
+.search-input-wrap svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray);
+  pointer-events: none;
+}
+
+.search-input-wrap input,
+.search-select {
+  width: 100%;
+  background: #f4f9ff;
+  border: 1px solid var(--card-border);
+  color: var(--white);
+  padding: 13px 14px 13px 42px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-select {
+  padding-left: 14px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%235a7fa8' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+  background-color: #f4f9ff;
+}
+
+.search-input-wrap input:focus,
+.search-select:focus {
+  border-color: var(--orange);
+  background: #fff;
+}
+
+.search-input-wrap input::placeholder { color: var(--gray); }
+
+select option { background: #fff; color: #0d2a4e; }
+select optgroup { background: #f0f6ff; color: #5a7fa8; font-weight: 700; font-size: 12px; }
+
+.search-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-tag {
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--card-border);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray);
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+  font-family: inherit;
+}
+.filter-tag:hover, .filter-tag.active {
+  background: #1a7fe8;
+  border-color: #1a7fe8;
+  color: white;
+}
+
+/* ─── MINOR CATS ANIMATION ─── */
+.minor-cats-wrap {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+  padding-top: 0;
+  margin-top: 0;
+  border-top: 1px dashed transparent;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+  pointer-events: none;
+}
+.minor-cats-wrap.open {
+  max-height: 400px;
+  opacity: 1;
+  padding-top: 14px;
+  margin-top: 14px;
+  border-top-color: #c5dcf3;
+  pointer-events: auto;
+}
+.filter-tag-minor {
+  padding: 5px 14px;
+  border-radius: 100px;
+  border: 1px solid #c5dcf3;
+  font-size: 12px;
+  font-weight: 500;
+  color: #1a7fe8;
+  cursor: pointer;
+  transition: all 0.18s;
+  background: #f0f8ff;
+  font-family: inherit;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: tagIn 0.25s ease forwards;
+}
+@keyframes tagIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+.filter-tag-minor:hover, .filter-tag-minor.active {
+  background: #1a7fe8;
+  border-color: #1a7fe8;
+  color: white;
+}
+
+/* ─── RESET BUTTON ─── */
+.reset-btn {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  background: #fff0f0;
+  border: 1px solid #fca5a5;
+  color: #dc2626;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+  margin-left: auto;
+}
+.reset-btn:hover { background: #fee2e2; }
+.reset-btn.visible { display: flex; }
+
+/* ─── ACTIVE FILTER BADGE ─── */
+.active-filter-badge {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  background: #1a7fe8;
+  color: white;
+  padding: 4px 12px 4px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.active-filter-badge.visible { display: inline-flex; }
+.active-filter-badge .badge-close {
+  cursor: pointer;
+  opacity: 0.7;
+  font-size: 14px;
+  line-height: 1;
+  transition: opacity 0.15s;
+}
+.active-filter-badge .badge-close:hover { opacity: 1; }
+
+/* ─── CARD CATEGORY BADGE ─── */
+.card-cat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 100px;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+}
+.badge-足場 { background: #dbeafe; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.badge-仮囲い { background: #fef9c3; color: #854d0e; border: 1px solid #fde68a; }
+.badge-仮設ハウス { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+.badge-養生 { background: #f3e8ff; color: #6b21a8; border: 1px solid #e9d5ff; }
+.badge-昇降 { background: #ffedd5; color: #9a3412; border: 1px solid #fed7aa; }
+.badge-電気 { background: #fef08a; color: #713f12; border: 1px solid #fde047; }
+.badge-保安 { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+.badge-土木 { background: #e2e8f0; color: #334155; border: 1px solid #cbd5e1; }
+.badge-default { background: #e0f2fe; color: #075985; border: 1px solid #bae6fd; }
+
+/* ─── MAP ─── */
+.map-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+/* 関東マップ ボタンレイアウト */
+
+.search-btn {
+  background: var(--orange);
+  color: white;
+  border: none;
+  padding: 13px 28px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.search-btn:hover { background: var(--orange-light); }
+
+/* ─── STATS ─── */
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+  animation: fadeUp 0.7s 0.4s ease both;
+}
+.stat { }
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px;
+  color: var(--white);
+  letter-spacing: 1px;
+  line-height: 1;
+}
+.stat-num span { color: var(--orange); }
+.stat-label { font-size: 12px; color: var(--gray); margin-top: 4px; }
+
+/* ─── SECTION COMMON ─── */
+section {
+  position: relative;
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 5vw, 56px);
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  line-height: 1;
+}
+
+/* ─── COMPANIES LIST ─── */
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.list-count {
+  font-size: 13px;
+  color: var(--gray);
+}
+.list-count strong { color: var(--white); }
+
+.sort-select {
+  background: #ffffff;
+  border: 1px solid var(--card-border);
+  color: #5a7fa8;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  font-size: 12px;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+.companies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+}
+
+/* ─── COMPANY CARD ─── */
+.company-card {
+  background: #ffffff;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.company-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #1a7fe8, #3b97f7);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  transform-origin: left;
+}
+.company-card:hover {
+  border-color: rgba(26,127,232,0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(26,127,232,0.15);
+}
+.company-card:hover::before { transform: scaleX(1); }
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.card-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #dbeeff, #c3ddf8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: #1a7fe8;
+  flex-shrink: 0;
+  border: 1px solid #c5dcf3;
+}
+
+.card-info { flex: 1; min-width: 0; }
+
+.card-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-location {
+  font-size: 12px;
+  color: var(--gray);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: rgba(16,185,129,0.12);
+  color: #34d399;
+  border: 1px solid rgba(16,185,129,0.25);
+  flex-shrink: 0;
+}
+.card-status::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #34d399;
+}
+
+.card-pr {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.card-tag {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: rgba(244,99,42,0.1);
+  border: 1px solid rgba(244,99,42,0.2);
+  color: var(--orange-light);
+  font-weight: 500;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--card-border);
+}
+
+.card-tel {
+  font-size: 13px;
+  color: var(--gray);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-btn {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--orange);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.2s;
+}
+.card-btn:hover { gap: 8px; }
+
+/* ─── MODAL ─── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(13,42,78,0.5);
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 60px 20px 40px;
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  overflow-y: auto;
+}
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: #ffffff;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 640px;
+  overflow: hidden;
+  transform: translateY(20px);
+  transition: transform 0.3s;
+  box-shadow: 0 20px 60px rgba(26,127,232,0.2);
+}
+.modal-overlay.open .modal { transform: translateY(0); }
+
+.modal-header {
+  background: linear-gradient(135deg, #e8f3ff, #f0f9ff);
+  padding: 28px 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.modal-logo {
+  width: 68px;
+  height: 68px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #dbeeff, #c3ddf8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  color: #1a7fe8;
+  flex-shrink: 0;
+  border: 1px solid #c5dcf3;
+}
+
+.modal-name { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+.modal-loc { font-size: 13px; color: var(--gray); display: flex; align-items: center; gap: 4px; }
+.modal-close {
+  margin-left: auto;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--gray);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.modal-close:hover { background: var(--steel); color: var(--white); }
+
+.modal-body { padding: 28px 32px; }
+
+.modal-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 10px;
+  margin-top: 24px;
+}
+.modal-section-label:first-child { margin-top: 0; }
+
+.modal-pr {
+  font-size: 14px;
+  color: var(--white-dim);
+  line-height: 1.8;
+}
+
+.modal-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.modal-tag {
+  font-size: 12px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  background: rgba(244,99,42,0.1);
+  border: 1px solid rgba(244,99,42,0.25);
+  color: var(--orange-light);
+  font-weight: 500;
+}
+
+.modal-contacts { display: flex; flex-direction: column; gap: 10px; }
+.modal-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--white-dim);
+}
+.modal-contact-icon {
+  width: 32px;
+  height: 32px;
+  background: #e8f3ff;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--card-border);
+}
+
+.btn-primary {
+  flex: 1;
+  background: var(--orange);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+.btn-primary:hover { background: var(--orange-light); }
+
+.btn-secondary {
+  flex: 1;
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--card-border);
+  padding: 14px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.btn-secondary:hover { border-color: var(--white); }
+
+/* ─── CATEGORIES ─── */
+.categories-section {
+  background: #dceeff;
+  margin: 0;
+  max-width: 100%;
+  padding: 80px 40px;
+  border-top: 1px solid #c5dcf3;
+  border-bottom: 1px solid #c5dcf3;
+}
+
+.categories-inner { max-width: 1200px; margin: 0 auto; }
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.cat-item {
+  background: #ffffff;
+  border: 1px solid #c5dcf3;
+  border-radius: var(--radius-lg);
+  padding: 20px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.cat-item:hover {
+  border-color: #1a7fe8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26,127,232,0.15);
+}
+
+.cat-icon { font-size: 28px; margin-bottom: 8px; }
+.cat-name { font-size: 14px; font-weight: 700; color: #0d2a4e; margin-bottom: 6px; }
+.cat-subs { font-size: 11px; color: #5a7fa8; line-height: 1.6; }
+
+.minor-cats-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #5a7fa8;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  padding-top: 4px;
+}
+.minor-cats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.cat-item.active-cat {
+  border-color: #1a7fe8;
+  background: #eef6ff;
+}
+
+/* ─── APPLY SECTION ─── */
+.apply-section {
+  background: linear-gradient(135deg, #e8f3ff, #f0f6ff);
+  margin: 0;
+  max-width: 100%;
+  padding: 80px 40px;
+}
+.apply-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .apply-inner { grid-template-columns: 1fr; }
+}
+
+.apply-left h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.apply-left h2 span { color: #1a7fe8; }
+.apply-left p {
+  font-size: 15px;
+  color: #5a7fa8;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.apply-points { display: flex; flex-direction: column; gap: 14px; }
+.apply-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 14px;
+  color: #1e4070;
+}
+.apply-point-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1a7fe8;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+/* ─── FORM ─── */
+.apply-form {
+  background: #ffffff;
+  border: 1px solid #c5dcf3;
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: 0 4px 24px rgba(26,127,232,0.1);
+}
+
+.apply-form h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #0d2a4e;
+}
+
+.form-group { margin-bottom: 16px; }
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5a7fa8;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+.form-label span { color: #1a7fe8; }
+
+.form-input, .form-textarea, .form-select-input {
+  width: 100%;
+  background: #f4f9ff;
+  border: 1px solid #c5dcf3;
+  color: #0d2a4e;
+  padding: 11px 14px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-input:focus,
+.form-textarea:focus,
+.form-select-input:focus { border-color: #1a7fe8; background: #fff; }
+.form-input::placeholder, .form-textarea::placeholder { color: #93b8d8; }
+.form-textarea { resize: vertical; min-height: 90px; }
+.form-select-input {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%235a7fa8' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+  background-color: #f4f9ff;
+}
+.form-select-input option { background: #fff; color: #0d2a4e; }
+
+.form-submit {
+  width: 100%;
+  background: var(--orange);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: var(--radius);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.form-submit:hover { background: var(--orange-light); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: #0d2a4e;
+  border-top: 1px solid #1a3f6e;
+  padding: 60px 40px 40px;
+  color: #f0f6ff;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 48px;
+}
+@media (max-width: 768px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+}
+
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+  color: #f0f6ff;
+}
+.footer-logo span { color: #3b97f7; }
+.footer-desc { font-size: 13px; color: #5a8ab8; line-height: 1.7; }
+
+.footer-col h4 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #5a8ab8;
+  margin-bottom: 16px;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a {
+  font-size: 13px;
+  color: #7aabce;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-col ul li a:hover { color: #f0f6ff; }
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid #1a3f6e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-copy { font-size: 12px; color: #5a8ab8; }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 640px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 100px 20px 60px; }
+  .search-row { flex-direction: column; }
+  .hero-stats { gap: 24px; }
+  section { padding: 60px 20px; }
+  .categories-section, .apply-section { padding: 60px 20px; }
+  footer { padding: 40px 20px 32px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+
+/* ─── EMPTY STATE ─── */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--gray);
+}
+.empty-state p { font-size: 14px; }
+
+/* ─── SUCCESS TOAST ─── */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #10b981;
+  color: white;
+  padding: 14px 24px;
+  border-radius: var(--radius-lg);
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 300;
+  transform: translateY(80px);
+  opacity: 0;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">レン<span>サク</span></div>
+  <ul class="nav-links">
+    <li><a href="https://kanekohan.github.io/rensaku/kasetsu-search.html#companies">会社を探す</a></li>
+    <li><a href="https://kanekohan.github.io/rensaku/kasetsu-search.html#categories">商品カテゴリ</a></li>
+    <li><a href="https://kanekohan.github.io/rensaku/kasetsu-search.html#apply">掲載申請</a></li>
+    <li><a href="https://kanekohan.github.io/rensaku/kasetsu-search.html#apply" class="nav-cta">無料で掲載する</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-gradient"></div>
+
+  <div class="hero-tag">仮設資材 検索プラットフォーム</div>
+
+  <h1>全国の仮設<em>資材会社を</em>探せる</h1>
+
+  <p class="hero-sub">足場・仮囲い・仮設トイレ・養生材など、現場が必要とするすべての仮設資材会社を地域と商品カテゴリから素早く検索できます。</p>
+
+  <!-- Search Box -->
+  <div class="search-box">
+    <div class="search-row">
+      <div class="search-input-wrap">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+        <input type="text" id="keyword-input" placeholder="会社名・キーワードで検索" oninput="filterCompanies()">
+      </div>
+      <select class="search-select" id="pref-select" onchange="onPrefChange()">
+        <option value="">① 都道府県を選ぶ</option>
+        <option>東京都</option>
+        <option>神奈川県</option>
+        <option>埼玉県</option>
+        <option>千葉県</option>
+        <option>茨城県</option>
+        <option>栃木県</option>
+        <option>群馬県</option>
+        <option>静岡県</option>
+      </select>
+      <select class="search-select" id="city-select" onchange="filterCompanies()" disabled="" style="opacity:0.5;transition:opacity 0.2s;">
+        <option value="">② 市区町村を選ぶ</option>
+      </select>
+      <button class="search-btn" onclick="filterCompanies()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+        検索する
+      </button>
+    </div>
+
+    <!-- 商品カテゴリフィルター -->
+    <div class="search-filters" id="product-filters">
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:4px;">
+        <div id="active-filter-badge" class="active-filter-badge">
+          <span id="badge-text"></span>
+          <span class="badge-close" onclick="resetAll()">✕</span>
+        </div>
+        <button class="reset-btn" id="reset-btn" onclick="resetAll()">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+          条件をリセット
+        </button>
+      </div>
+      <div class="cat-filter-row" id="major-cats">
+        <button class="filter-tag active" onclick="selectMajor(this, &#39;&#39;)">すべて</button>
+        <button class="filter-tag" onclick="selectMajor(this, &#39;足場・作業台&#39;)">🏗️ 足場・作業台</button>
+        <button class="filter-tag" onclick="selectMajor(this, &#39;仮囲い・フェンス&#39;)">🔲 仮囲い・フェンス</button>
+        <button class="filter-tag" onclick="selectMajor(this, &#39;仮設ハウス・トイレ&#39;)">🏠 仮設ハウス・トイレ</button>
+        <button class="filter-tag" onclick="selectMajor(this, &#39;養生・防音&#39;)">🛡️ 養生・防音</button>
+        <button class="filter-tag" onclick="selectMajor(this, &#39;昇降・運搬&#39;)">🔼 昇降・運搬</button>
+        <button class="filter-tag" onclick="selectMajor(this, &#39;電気・水道&#39;)">⚡ 電気・水道</button>
+        <button class="filter-tag" onclick="selectMajor(this, &#39;保安・安全用品&#39;)">⚠️ 保安・安全用品</button>
+        <button class="filter-tag" onclick="selectMajor(this, &#39;土木・地業&#39;)">🔩 土木・地業</button>
+      </div>
+      <div class="minor-cats-wrap" id="minor-cats">
+        <div class="minor-cats-label">▼ 詳しい種類：</div>
+        <div class="minor-cats-row" id="minor-cats-row"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num" id="stat-count">8<span>社</span></div>
+      <div class="stat-label">掲載会社数</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">47<span>都道府県</span></div>
+      <div class="stat-label">全国対応</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">20<span>+</span></div>
+      <div class="stat-label">商品カテゴリ</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPANIES SECTION -->
+<section id="companies">
+  <div class="section-label">COMPANY LIST</div>
+  <div class="section-title">仮設会社 一覧</div>
+
+  <div class="list-header">
+    <div class="list-count" id="list-count">全 <strong>8</strong> 社が見つかりました</div>
+    <select class="sort-select" onchange="sortCompanies(this.value)">
+      <option value="default">おすすめ順</option>
+      <option value="name">会社名順</option>
+      <option value="pref">都道府県順</option>
+    </select>
+  </div>
+
+  <div class="companies-grid" id="companies-grid">
+      <div class="company-card" onclick="openModal(1)">
+        <span class="card-cat-badge badge-足場">🏗️ 足場・作業台</span>
+        <div class="card-top">
+          <div class="card-logo">東京</div>
+          <div class="card-info">
+            <div class="card-name">東京足場工業株式会社</div>
+            <div class="card-location">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              東京都 江東区
+            </div>
+          </div>
+          <div class="card-status">公開</div>
+        </div>
+        <div class="card-pr">首都圏No.1の実績。大型現場から住宅工事まで幅広く対応。</div>
+        <div class="card-tags"><span class="card-tag">枠組足場</span><span class="card-tag">くさび足場（ビケ足場）</span><span class="card-tag">鋼板仮囲い</span><span class="card-tag">+2</span></div>
+        <div class="card-footer">
+          <div class="card-tel">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            03-1234-5678
+          </div>
+          <span class="card-btn">詳細を見る →</span>
+        </div>
+      </div>
+    
+      <div class="company-card" onclick="openModal(2)">
+        <span class="card-cat-badge badge-仮設ハウス">🏠 仮設ハウス・トイレ</span>
+        <div class="card-top">
+          <div class="card-logo">神奈</div>
+          <div class="card-info">
+            <div class="card-name">神奈川仮設レンタル</div>
+            <div class="card-location">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              神奈川県 横浜市神奈川区
+            </div>
+          </div>
+          <div class="card-status">公開</div>
+        </div>
+        <div class="card-pr">仮設トイレ・仮設ハウスのレンタル専門。即日手配可能。</div>
+        <div class="card-tags"><span class="card-tag">仮設トイレ（洋式）</span><span class="card-tag">仮設トイレ（和式）</span><span class="card-tag">事務所ハウス</span><span class="card-tag">+1</span></div>
+        <div class="card-footer">
+          <div class="card-tel">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            045-234-5678
+          </div>
+          <span class="card-btn">詳細を見る →</span>
+        </div>
+      </div>
+    
+      <div class="company-card" onclick="openModal(3)">
+        <span class="card-cat-badge badge-足場">🏗️ 足場・作業台</span>
+        <div class="card-top">
+          <div class="card-logo">関東</div>
+          <div class="card-info">
+            <div class="card-name">関東総合仮設株式会社</div>
+            <div class="card-location">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              埼玉県 さいたま市大宮区
+            </div>
+          </div>
+          <div class="card-status">公開</div>
+        </div>
+        <div class="card-pr">防音・振動対策に強い。市街地工事の頼れるパートナー。</div>
+        <div class="card-tags"><span class="card-tag">枠組足場</span><span class="card-tag">防音パネル</span><span class="card-tag">鋼板仮囲い</span><span class="card-tag">+2</span></div>
+        <div class="card-footer">
+          <div class="card-tel">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            048-345-6789
+          </div>
+          <span class="card-btn">詳細を見る →</span>
+        </div>
+      </div>
+    
+      <div class="company-card" onclick="openModal(4)">
+        <span class="card-cat-badge badge-足場">🏗️ 足場・作業台</span>
+        <div class="card-top">
+          <div class="card-logo">千葉</div>
+          <div class="card-info">
+            <div class="card-name">千葉仮設工業</div>
+            <div class="card-location">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              千葉県 千葉市中央区
+            </div>
+          </div>
+          <div class="card-status">公開</div>
+        </div>
+        <div class="card-pr">安全第一。各種安全設備・保護資材の専門業者。</div>
+        <div class="card-tags"><span class="card-tag">くさび足場（ビケ足場）</span><span class="card-tag">安全ネット</span><span class="card-tag">親綱・親綱支柱</span><span class="card-tag">+2</span></div>
+        <div class="card-footer">
+          <div class="card-tel">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            043-456-7890
+          </div>
+          <span class="card-btn">詳細を見る →</span>
+        </div>
+      </div>
+    
+      <div class="company-card" onclick="openModal(5)">
+        <span class="card-cat-badge badge-仮設ハウス">🏠 仮設ハウス・トイレ</span>
+        <div class="card-top">
+          <div class="card-logo">首都</div>
+          <div class="card-info">
+            <div class="card-name">首都圏仮設センター</div>
+            <div class="card-location">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              東京都 品川区
+            </div>
+          </div>
+          <div class="card-status">公開</div>
+        </div>
+        <div class="card-pr">ライフライン系仮設設備のワンストップ提供が強み。</div>
+        <div class="card-tags"><span class="card-tag">仮設トイレ（洋式）</span><span class="card-tag">事務所ハウス</span><span class="card-tag">仮設電気設備</span><span class="card-tag">+2</span></div>
+        <div class="card-footer">
+          <div class="card-tel">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            03-5678-9012
+          </div>
+          <span class="card-btn">詳細を見る →</span>
+        </div>
+      </div>
+    
+      <div class="company-card" onclick="openModal(6)">
+        <span class="card-cat-badge badge-足場">🏗️ 足場・作業台</span>
+        <div class="card-top">
+          <div class="card-logo">北関</div>
+          <div class="card-info">
+            <div class="card-name">北関東仮設資材株式会社</div>
+            <div class="card-location">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              埼玉県 熊谷市
+            </div>
+          </div>
+          <div class="card-status">公開</div>
+        </div>
+        <div class="card-pr">大型土木・インフラ工事向けの仮設資材を豊富にラインナップ。</div>
+        <div class="card-tags"><span class="card-tag">枠組足場</span><span class="card-tag">鋼板仮囲い</span><span class="card-tag">敷鉄板</span><span class="card-tag">+2</span></div>
+        <div class="card-footer">
+          <div class="card-tel">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            048-567-8901
+          </div>
+          <span class="card-btn">詳細を見る →</span>
+        </div>
+      </div>
+    
+      <div class="company-card" onclick="openModal(7)">
+        <span class="card-cat-badge badge-足場">🏗️ 足場・作業台</span>
+        <div class="card-top">
+          <div class="card-logo">横浜</div>
+          <div class="card-info">
+            <div class="card-name">横浜建設資材リース</div>
+            <div class="card-location">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              神奈川県 横浜市港南区
+            </div>
+          </div>
+          <div class="card-status">公開</div>
+        </div>
+        <div class="card-pr">夜間工事向け仮設照明の設置・管理サービスも充実。</div>
+        <div class="card-tags"><span class="card-tag">枠組足場</span><span class="card-tag">養生シート（ブルーシート）</span><span class="card-tag">安全ネット</span><span class="card-tag">+2</span></div>
+        <div class="card-footer">
+          <div class="card-tel">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            045-678-9012
+          </div>
+          <span class="card-btn">詳細を見る →</span>
+        </div>
+      </div>
+    
+      <div class="company-card" onclick="openModal(8)">
+        <span class="card-cat-badge badge-足場">🏗️ 足場・作業台</span>
+        <div class="card-top">
+          <div class="card-logo">テス</div>
+          <div class="card-info">
+            <div class="card-name">テスト建設株式会社</div>
+            <div class="card-location">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              東京都 新宿区
+            </div>
+          </div>
+          <div class="card-status">公開</div>
+        </div>
+        <div class="card-pr">テスト用サンプルデータです。実際の運用時は本物の会社データに差し替えてください。</div>
+        <div class="card-tags"><span class="card-tag">枠組足場</span><span class="card-tag">鋼板仮囲い</span><span class="card-tag">仮設トイレ（洋式）</span></div>
+        <div class="card-footer">
+          <div class="card-tel">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            03-0000-0000
+          </div>
+          <span class="card-btn">詳細を見る →</span>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- CATEGORIES SECTION -->
+<section class="categories-section" id="categories">
+  <div class="categories-inner">
+    <div class="section-label">PRODUCT CATEGORY</div>
+    <div class="section-title">商品カテゴリから探す</div>
+    <div class="cat-grid" id="main-cat-grid">
+      <div class="cat-item" onclick="jumpCategory(&#39;足場・作業台&#39;)">
+        <div class="cat-icon">🏗️</div>
+        <div class="cat-name">足場・作業台</div>
+        <div class="cat-subs">枠組足場 / 単管足場 / くさび足場 / 移動式足場 / 作業台</div>
+      </div>
+      <div class="cat-item" onclick="jumpCategory(&#39;仮囲い・フェンス&#39;)">
+        <div class="cat-icon">🔲</div>
+        <div class="cat-name">仮囲い・フェンス</div>
+        <div class="cat-subs">鋼板仮囲い / プラスチックフェンス / ガードフェンス / バリケード</div>
+      </div>
+      <div class="cat-item" onclick="jumpCategory(&#39;仮設ハウス・トイレ&#39;)">
+        <div class="cat-icon">🏠</div>
+        <div class="cat-name">仮設ハウス・トイレ</div>
+        <div class="cat-subs">事務所ハウス / 休憩室 / 仮設トイレ / 更衣室</div>
+      </div>
+      <div class="cat-item" onclick="jumpCategory(&#39;養生・防音&#39;)">
+        <div class="cat-icon">🛡️</div>
+        <div class="cat-name">養生・防音</div>
+        <div class="cat-subs">養生シート / 養生ネット / 防音パネル / 防音シート / 防塵シート</div>
+      </div>
+      <div class="cat-item" onclick="jumpCategory(&#39;昇降・運搬&#39;)">
+        <div class="cat-icon">🔼</div>
+        <div class="cat-name">昇降・運搬</div>
+        <div class="cat-subs">仮設階段 / 梯子 / 荷揚げ機 / 台車 / クレーン</div>
+      </div>
+      <div class="cat-item" onclick="jumpCategory(&#39;電気・水道&#39;)">
+        <div class="cat-icon">⚡</div>
+        <div class="cat-name">電気・水道</div>
+        <div class="cat-subs">仮設電気 / 仮設照明 / 発電機 / 仮設水道 / 給排水設備</div>
+      </div>
+      <div class="cat-item" onclick="jumpCategory(&#39;保安・安全用品&#39;)">
+        <div class="cat-icon">⚠️</div>
+        <div class="cat-name">保安・安全用品</div>
+        <div class="cat-subs">カラーコーン / コーンバー / 保安灯 / 安全ネット / 親綱支柱</div>
+      </div>
+      <div class="cat-item" onclick="jumpCategory(&#39;土木・地業&#39;)">
+        <div class="cat-icon">🔩</div>
+        <div class="cat-name">土木・地業</div>
+        <div class="cat-subs">敷鉄板 / 仮設道路 / 土留め・山留め / 矢板 / 排水ポンプ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY SECTION -->
+<section class="apply-section" id="apply">
+  <div class="apply-inner">
+    <div class="apply-left">
+      <div class="section-label">FOR COMPANIES</div>
+      <h2>貴社を<span>無料</span>で<br>掲載しませんか</h2>
+      <p>レンサクは仮設資材業界の会社と現場をつなぐプラットフォームです。まずは無料でご掲載いただき、新しい取引先との出会いのきっかけにしてください。</p>
+      <div class="apply-points">
+        <div class="apply-point">
+          <div class="apply-point-dot"></div>
+          <div>初期費用・掲載料 <strong>完全無料</strong>でスタートできます</div>
+        </div>
+        <div class="apply-point">
+          <div class="apply-point-dot"></div>
+          <div>会社名・商品・エリア・電話番号などを掲載可能</div>
+        </div>
+        <div class="apply-point">
+          <div class="apply-point-dot"></div>
+          <div>掲載後は編集・内容更新もすぐに対応いたします</div>
+        </div>
+        <div class="apply-point">
+          <div class="apply-point-dot"></div>
+          <div>審査後、通常 <strong>3営業日以内</strong> に公開されます</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="apply-form">
+      <h3>掲載申請フォーム</h3>
+      <div class="form-group">
+        <label class="form-label">会社名 <span>*</span></label>
+        <input type="text" class="form-input" placeholder="株式会社〇〇仮設" id="form-company">
+      </div>
+      <div class="form-group">
+        <label class="form-label">担当者名 <span>*</span></label>
+        <input type="text" class="form-input" placeholder="山田 太郎" id="form-name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">メールアドレス <span>*</span></label>
+        <input type="email" class="form-input" placeholder="info@example.com" id="form-email">
+      </div>
+      <div class="form-group">
+        <label class="form-label">都道府県 <span>*</span></label>
+        <select class="form-select-input" id="form-pref">
+          <option value="">選択してください</option>
+          <option>東京都</option><option>神奈川県</option><option>埼玉県</option><option>千葉県</option>
+          <option>大阪府</option><option>愛知県</option><option>福岡県</option><option>北海道</option>
+          <option>宮城県</option><option>広島県</option><option>その他</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">取扱商品（任意）</label>
+        <input type="text" class="form-input" placeholder="足場、仮設トイレ、養生材など" id="form-products">
+      </div>
+      <div class="form-group">
+        <label class="form-label">PR文・備考（任意）</label>
+        <textarea class="form-textarea" placeholder="会社の特徴・強みをご記入ください" id="form-pr"></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13"></path><path d="M22 2 15 22 11 13 2 9l20-7z"></path></svg>
+        申請を送信する（無料）
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">レン<span>サク</span></div>
+      <p class="footer-desc">建設現場の担当者が必要な仮設資材を<br>取り扱う会社を素早く見つけられる<br>検索プラットフォームです。</p>
+    </div>
+    <div class="footer-col">
+      <h4>メニュー</h4>
+      <ul>
+        <li><a href="https://kanekohan.github.io/rensaku/kasetsu-search.html#companies">会社を探す</a></li>
+        <li><a href="https://kanekohan.github.io/rensaku/kasetsu-search.html#categories">商品カテゴリ</a></li>
+        <li><a href="https://kanekohan.github.io/rensaku/kasetsu-search.html#apply">無料掲載申請</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>サポート</h4>
+      <ul>
+        <li><a href="https://kanekohan.github.io/rensaku/kasetsu-search.html#">利用規約</a></li>
+        <li><a href="https://kanekohan.github.io/rensaku/kasetsu-search.html#">プライバシーポリシー</a></li>
+        <li><a href="https://kanekohan.github.io/rensaku/kasetsu-search.html#">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 レンサク. All rights reserved.</div>
+    <div class="footer-copy">仮設資材会社 検索プラットフォーム</div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="modal-logo" id="modal-logo"></div>
+      <div>
+        <div class="modal-name" id="modal-name"></div>
+        <div class="modal-loc" id="modal-loc"></div>
+      </div>
+      <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section-label">会社概要・PR</div>
+      <div class="modal-pr" id="modal-pr"></div>
+
+      <div class="modal-section-label">取扱商品</div>
+      <div class="modal-tags" id="modal-tags"></div>
+
+      <div class="modal-section-label">連絡先</div>
+      <div class="modal-contacts" id="modal-contacts"></div>
+
+      <div class="modal-actions">
+        <button class="btn-primary" id="modal-tel-btn">📞 電話で問い合わせる</button>
+        <button class="btn-secondary" id="modal-site-btn">🌐 公式サイトを見る</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✅ 申請を受け付けました。担当者よりご連絡いたします。</div>
+
+<script>
+// ─── タブ切り替え ───
+// ─── 関東6都県 市区マスター（政令市は区まで展開）───
+const CITIES = {
+  "東京都": [
+    // 23区
+    "千代田区","中央区","港区","新宿区","文京区","台東区","墨田区","江東区",
+    "品川区","目黒区","大田区","世田谷区","渋谷区","中野区","杉並区","豊島区",
+    "北区","荒川区","板橋区","練馬区","足立区","葛飾区","江戸川区",
+    // 多摩地区（市）
+    "八王子市","立川市","武蔵野市","三鷹市","青梅市","府中市","昭島市",
+    "調布市","町田市","小金井市","小平市","日野市","東村山市","国分寺市",
+    "国立市","福生市","狛江市","東大和市","清瀬市","東久留米市","武蔵村山市",
+    "多摩市","稲城市","羽村市","あきる野市","西東京市",
+    // 町・村
+    "瑞穂町","日の出町","檜原村","奥多摩町"
+  ],
+  "神奈川県": [
+    // 横浜市（18区）
+    "横浜市鶴見区","横浜市神奈川区","横浜市西区","横浜市中区","横浜市南区",
+    "横浜市保土ケ谷区","横浜市磯子区","横浜市金沢区","横浜市港北区","横浜市戸塚区",
+    "横浜市港南区","横浜市旭区","横浜市緑区","横浜市瀬谷区","横浜市栄区",
+    "横浜市泉区","横浜市青葉区","横浜市都筑区",
+    // 川崎市（7区）
+    "川崎市川崎区","川崎市幸区","川崎市中原区","川崎市高津区",
+    "川崎市多摩区","川崎市宮前区","川崎市麻生区",
+    // 相模原市（3区）
+    "相模原市緑区","相模原市中央区","相模原市南区",
+    // その他市
+    "横須賀市","平塚市","鎌倉市","藤沢市","小田原市","茅ヶ崎市",
+    "逗子市","三浦市","秦野市","厚木市","大和市","伊勢原市",
+    "海老名市","座間市","南足柄市","綾瀬市",
+    // 町・村
+    "葉山町","寒川町","大磯町","二宮町","中井町","大井町","松田町",
+    "山北町","開成町","箱根町","真鶴町","湯河原町","愛川町","清川村"
+  ],
+  "埼玉県": [
+    // さいたま市（10区）
+    "さいたま市西区","さいたま市北区","さいたま市大宮区","さいたま市見沼区",
+    "さいたま市中央区","さいたま市桜区","さいたま市浦和区","さいたま市南区",
+    "さいたま市緑区","さいたま市岩槻区",
+    // その他市
+    "川越市","熊谷市","川口市","行田市","秩父市","所沢市","飯能市",
+    "加須市","本庄市","東松山市","春日部市","狭山市","羽生市","鴻巣市",
+    "深谷市","上尾市","草加市","越谷市","蕨市","戸田市","入間市",
+    "朝霞市","志木市","和光市","新座市","桶川市","久喜市","北本市",
+    "八潮市","富士見市","三郷市","蓮田市","坂戸市","幸手市","鶴ヶ島市",
+    "日高市","吉川市","ふじみ野市","白岡市",
+    // 町・村
+    "伊奈町","三芳町","毛呂山町","越生町","滑川町","嵐山町","小川町",
+    "川島町","吉見町","鳩山町","ときがわ町","横瀬町","皆野町","長瀞町",
+    "小鹿野町","東秩父村","美里町","神川町","上里町","寄居町","宮代町",
+    "杉戸町","松伏町"
+  ],
+  "千葉県": [
+    // 千葉市（6区）
+    "千葉市中央区","千葉市花見川区","千葉市稲毛区","千葉市若葉区",
+    "千葉市緑区","千葉市美浜区",
+    // その他市
+    "銚子市","市川市","船橋市","館山市","木更津市","松戸市","野田市",
+    "茂原市","成田市","佐倉市","東金市","旭市","習志野市","柏市",
+    "勝浦市","市原市","流山市","八千代市","我孫子市","鴨川市","鎌ヶ谷市",
+    "君津市","富津市","浦安市","四街道市","袖ケ浦市","八街市","印西市",
+    "白井市","富里市","南房総市","匝瑳市","香取市","山武市","いすみ市",
+    "大網白里市",
+    // 町・村
+    "酒々井町","栄町","神崎町","多古町","東庄町","九十九里町","芝山町",
+    "横芝光町","一宮町","睦沢町","長生村","白子町","長柄町","長南町",
+    "大多喜町","御宿町","鋸南町"
+  ],
+  "茨城県": [
+    // 市
+    "水戸市","日立市","土浦市","古河市","石岡市","結城市","龍ケ崎市",
+    "下妻市","常総市","常陸太田市","高萩市","北茨城市","笠間市","取手市",
+    "牛久市","つくば市","ひたちなか市","鹿嶋市","潮来市","守谷市",
+    "常陸大宮市","那珂市","筑西市","坂東市","稲敷市","かすみがうら市",
+    "桜川市","神栖市","行方市","鉾田市","つくばみらい市","小美玉市",
+    // 町・村
+    "茨城町","大洗町","城里町","東海村","大子町","美浦村","阿見町",
+    "河内町","八千代町","五霞町","境町","利根町"
+  ],
+  "栃木県": [
+    // 市
+    "宇都宮市","足利市","栃木市","佐野市","鹿沼市","日光市","小山市",
+    "真岡市","大田原市","矢板市","那須塩原市","さくら市","那須烏山市",
+    "下野市",
+    // 町・村
+    "上三川町","益子町","茂木町","市貝町","芳賀町","壬生町","野木町",
+    "塩谷町","高根沢町","那須町","那珂川町"
+  ],
+  "群馬県": [
+    // 市
+    "前橋市","高崎市","桐生市","伊勢崎市","太田市","沼田市","館林市",
+    "渋川市","藤岡市","富岡市","安中市","みどり市",
+    // 町・村
+    "榛東村","吉岡町","上野村","神流町","下仁田町","南牧村","甘楽町",
+    "中之条町","長野原町","嬬恋村","草津町","高山村","東吾妻町",
+    "片品村","川場村","昭和村","みなかみ町","玉村町","板倉町","明和町",
+    "千代田町","大泉町","邑楽町"
+  ],
+  "静岡県": [
+    // 静岡市（3区）
+    "静岡市葵区","静岡市駿河区","静岡市清水区",
+    // 浜松市（7区）
+    "浜松市中央区","浜松市浜名区","浜松市天竜区",
+    // その他市
+    "沼津市","熱海市","三島市","富士宮市","伊東市","島田市","富士市",
+    "磐田市","焼津市","掛川市","藤枝市","御殿場市","袋井市","下田市",
+    "裾野市","湖西市","伊豆市","御前崎市","菊川市","伊豆の国市","牧之原市",
+    // 町・村
+    "東伊豆町","河津町","南伊豆町","松崎町","西伊豆町","函南町","清水町",
+    "長泉町","小山町","吉田町","川根本町","森町"
+  ]
+};
+
+// ─── DATA ───
+const companies = [
+  {
+    id: 1,
+    name: "東京足場工業株式会社",
+    pref: "東京都", city: "江東区",
+    products: ["枠組足場","くさび足場（ビケ足場）","鋼板仮囲い","養生シート（ブルーシート）","安全ネット"],
+    pr_short: "首都圏No.1の実績。大型現場から住宅工事まで幅広く対応。",
+    pr_long: "創業30年の実績を持つ総合仮設工事会社です。足場・仮囲い・養生材を中心に、首都圏の大規模建設現場から個人住宅の改修工事まで幅広く対応しています。ISO9001認証取得済みで品質管理も万全です。",
+    tel: "03-1234-5678",
+    url: "https://example.com",
+    status: "公開"
+  },
+  {
+    id: 2,
+    name: "神奈川仮設レンタル",
+    pref: "神奈川県", city: "横浜市神奈川区",
+    products: ["仮設トイレ（洋式）","仮設トイレ（和式）","事務所ハウス","養生シート（ブルーシート）"],
+    pr_short: "仮設トイレ・仮設ハウスのレンタル専門。即日手配可能。",
+    pr_long: "神奈川県内を中心に仮設トイレ・仮設ハウスのレンタルを専門に行っています。短期から長期まで柔軟な対応が可能で、即日手配にも対応しています。",
+    tel: "045-234-5678",
+    url: "",
+    status: "公開"
+  },
+  {
+    id: 3,
+    name: "関東総合仮設株式会社",
+    pref: "埼玉県", city: "さいたま市大宮区",
+    products: ["枠組足場","防音パネル","鋼板仮囲い","仮設電気設備","敷鉄板"],
+    pr_short: "防音・振動対策に強い。市街地工事の頼れるパートナー。",
+    pr_long: "市街地での工事に不可欠な防音パネル・仮囲いを主力商品とする仮設資材会社です。近隣への配慮が必要な現場での実績が豊富で、各種許可申請サポートも行っています。",
+    tel: "048-345-6789",
+    url: "https://example.com",
+    status: "公開"
+  },
+  {
+    id: 4,
+    name: "千葉仮設工業",
+    pref: "千葉県", city: "千葉市中央区",
+    products: ["くさび足場（ビケ足場）","安全ネット","親綱・親綱支柱","バリケード","落下防止設備"],
+    pr_short: "安全第一。各種安全設備・保護資材の専門業者。",
+    pr_long: "安全設備・安全ネット・バリケードに特化した仮設資材専門会社です。現場の安全管理をトータルサポートし、労働安全衛生法に対応した設備を提供しています。",
+    tel: "043-456-7890",
+    url: "",
+    status: "公開"
+  },
+  {
+    id: 5,
+    name: "首都圏仮設センター",
+    pref: "東京都", city: "品川区",
+    products: ["仮設トイレ（洋式）","事務所ハウス","仮設電気設備","仮設給水設備","仮設排水設備"],
+    pr_short: "ライフライン系仮設設備のワンストップ提供が強み。",
+    pr_long: "仮設トイレ・電気・水道をワンストップで提供できる数少ない会社です。大規模な工事事務所の設置から、長期工事の現場環境整備まで対応可能です。",
+    tel: "03-5678-9012",
+    url: "https://example.com",
+    status: "公開"
+  },
+  {
+    id: 6,
+    name: "北関東仮設資材株式会社",
+    pref: "埼玉県", city: "熊谷市",
+    products: ["枠組足場","鋼板仮囲い","敷鉄板","仮設道路材","土留め・山留め材"],
+    pr_short: "大型土木・インフラ工事向けの仮設資材を豊富にラインナップ。",
+    pr_long: "土木・インフラ工事に特化した仮設資材会社です。敷鉄板・仮設道路の設置実績が豊富で、大型重機が入る現場での実績多数。関東一円に対応しています。",
+    tel: "048-567-8901",
+    url: "",
+    status: "公開"
+  },
+  {
+    id: 7,
+    name: "横浜建設資材リース",
+    pref: "神奈川県", city: "横浜市港南区",
+    products: ["枠組足場","養生シート（ブルーシート）","安全ネット","仮設照明・投光器","発電機"],
+    pr_short: "夜間工事向け仮設照明の設置・管理サービスも充実。",
+    pr_long: "足場・養生材を中心に、夜間工事に必要な仮設照明の設置・管理サービスを提供しています。24時間対応可能で緊急時の資材手配にも自信があります。",
+    tel: "045-678-9012",
+    url: "https://example.com",
+    status: "公開"
+  },
+  {
+    id: 8,
+    name: "テスト建設株式会社",
+    pref: "東京都", city: "新宿区",
+    products: ["枠組足場","鋼板仮囲い","仮設トイレ（洋式）"],
+    pr_short: "テスト用サンプルデータです。実際の運用時は本物の会社データに差し替えてください。",
+    pr_long: "このデータはAirtableのテスト入力用サンプルです。掲載ステータスを「公開」に設定して動作確認をしてください。",
+    tel: "03-0000-0000",
+    url: "",
+    status: "公開"
+  }
+];
+
+// ─── INIT ───
+function init() {
+  document.getElementById('stat-count').innerHTML = companies.length + '<span>社</span>';
+  renderCards(companies);
+}
+
+// ─── カテゴリ → バッジ色マッピング ───
+function getCatBadge(products) {
+  if (!products || products.length === 0) return { cls: 'badge-default', label: '仮設資材' };
+  const p = products[0];
+  if (p.includes('足場') || p.includes('作業台') || p.includes('脚立') || p.includes('馬脚立')) return { cls: 'badge-足場', label: '🏗️ 足場・作業台' };
+  if (p.includes('仮囲い') || p.includes('フェンス') || p.includes('バリケード') || p.includes('コーン') || p.includes('ゲート')) return { cls: 'badge-仮囲い', label: '🔲 仮囲い・フェンス' };
+  if (p.includes('トイレ') || p.includes('ハウス') || p.includes('更衣') || p.includes('倉庫') || p.includes('休憩')) return { cls: 'badge-仮設ハウス', label: '🏠 仮設ハウス・トイレ' };
+  if (p.includes('養生') || p.includes('防音') || p.includes('防塵')) return { cls: 'badge-養生', label: '🛡️ 養生・防音' };
+  if (p.includes('階段') || p.includes('梯子') || p.includes('荷揚') || p.includes('台車') || p.includes('クレーン') || p.includes('リフト')) return { cls: 'badge-昇降', label: '🔼 昇降・運搬' };
+  if (p.includes('電気') || p.includes('照明') || p.includes('発電') || p.includes('水道') || p.includes('給水') || p.includes('排水') || p.includes('給湯')) return { cls: 'badge-電気', label: '⚡ 電気・水道' };
+  if (p.includes('安全') || p.includes('親綱') || p.includes('手摺') || p.includes('落下') || p.includes('標識') || p.includes('ミラー') || p.includes('保安灯')) return { cls: 'badge-保安', label: '⚠️ 保安・安全用品' };
+  if (p.includes('敷鉄板') || p.includes('矢板') || p.includes('土留') || p.includes('排水ポンプ') || p.includes('道路材') || p.includes('H鋼') || p.includes('型枠')) return { cls: 'badge-土木', label: '🔩 土木・地業' };
+  return { cls: 'badge-default', label: p };
+}
+
+// ─── アクティブフィルターバッジ更新 ───
+function updateBadge() {
+  const badge = document.getElementById('active-filter-badge');
+  const badgeText = document.getElementById('badge-text');
+  const resetBtn = document.getElementById('reset-btn');
+  const hasFilter = activeFilter || activeMajor ||
+    document.getElementById('pref-select').value ||
+    document.getElementById('city-select').value ||
+    document.getElementById('keyword-input').value;
+
+  if (activeFilter || activeMajor) {
+    badgeText.textContent = activeFilter || activeMajor;
+    badge.classList.add('visible');
+  } else {
+    badge.classList.remove('visible');
+  }
+  if (hasFilter) resetBtn.classList.add('visible');
+  else resetBtn.classList.remove('visible');
+}
+
+// ─── 大カテゴリ選択 ───
+function selectMajor(btn, major) {
+  document.querySelectorAll('#major-cats .filter-tag').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeMajor = major;
+  activeFilter = major;
+
+  const minorWrap = document.getElementById('minor-cats');
+  const minorRow  = document.getElementById('minor-cats-row');
+
+  if (major && CATEGORY_MASTER[major]) {
+    // アニメーションをリセットしてから再生
+    minorRow.innerHTML = '';
+    minorWrap.classList.remove('open');
+
+    // 1フレーム待ってから展開（アニメーション確実に動かすため）
+    requestAnimationFrame(function() {
+      minorRow.innerHTML = CATEGORY_MASTER[major].map((sub, i) =>
+        `<button class="filter-tag-minor" style="animation-delay:${i * 0.06}s" onclick="selectMinor(this,'${sub}')">${sub}</button>`
+      ).join('');
+      minorWrap.classList.add('open');
+
+      // 小カテゴリが見える位置へ滑らかにスクロール
+      setTimeout(function() {
+        minorWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 200);
+    });
+  } else {
+    minorRow.innerHTML = '';
+    minorWrap.classList.remove('open');
+    activeFilter = '';
+  }
+  updateBadge();
+  filterCompanies();
+}
+
+// ─── 小カテゴリ選択 ───
+function selectMinor(btn, minor) {
+  document.querySelectorAll('.filter-tag-minor').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = minor;
+  updateBadge();
+  filterCompanies();
+}
+
+// ─── 全リセット ───
+function resetAll() {
+  document.getElementById('keyword-input').value = '';
+  document.getElementById('pref-select').value = '';
+  const citySelect = document.getElementById('city-select');
+  citySelect.innerHTML = '<option value="">② 市区町村を選ぶ</option>';
+  citySelect.disabled = true;
+  citySelect.style.opacity = '0.5';
+  activeMajor = '';
+  activeFilter = '';
+
+  document.querySelectorAll('#major-cats .filter-tag').forEach((b,i) => {
+    b.classList.toggle('active', i === 0);
+  });
+  document.getElementById('minor-cats').classList.remove('open');
+  updateBadge();
+  filterCompanies();
+}
+
+function toggleFilter(btn, product) { selectMajor(btn, product); }
+
+function filterByCategory(major) {
+  activeMajor = major;
+  activeFilter = major;
+
+  document.querySelectorAll('#major-cats .filter-tag').forEach(b => {
+    const matches = b.textContent.includes(major);
+    b.classList.toggle('active', matches);
+  });
+
+  const minorWrap = document.getElementById('minor-cats');
+  const minorRow  = document.getElementById('minor-cats-row');
+  if (CATEGORY_MASTER[major]) {
+    minorRow.innerHTML = '';
+    minorWrap.classList.remove('open');
+    requestAnimationFrame(function() {
+      minorRow.innerHTML = CATEGORY_MASTER[major].map((sub, i) =>
+        `<button class="filter-tag-minor" style="animation-delay:${i * 0.06}s" onclick="selectMinor(this,'${sub}')">${sub}</button>`
+      ).join('');
+      minorWrap.classList.add('open');
+    });
+  }
+  updateBadge();
+  filterCompanies();
+  setTimeout(function() {
+    document.getElementById('companies').scrollIntoView({ behavior: 'smooth' });
+  }, 300);
+}
+
+function jumpCategory(major) { filterByCategory(major); }
+
+// ─── 政令市グループ定義 ───
+const ORDINANCE_CITIES = {
+  "神奈川県": ["横浜市", "川崎市", "相模原市"],
+  "埼玉県":   ["さいたま市"],
+  "千葉県":   ["千葉市"],
+  "静岡県":   ["静岡市", "浜松市"]
+};
+
+// ─── 都道府県選択 → 市区町村を連動更新 ───
+function onPrefChange() {
+  const pref = document.getElementById('pref-select').value;
+  const citySelect = document.getElementById('city-select');
+
+  // innerHTML で確実に全削除（optgroupも含めて）
+  citySelect.innerHTML = '<option value="">② 市区町村を選ぶ</option>';
+
+  if (pref && CITIES[pref]) {
+    const ordPrefixes = ORDINANCE_CITIES[pref] || [];
+
+    if (ordPrefixes.length > 0) {
+      // 政令市ごとにoptgroup
+      ordPrefixes.forEach(function(cityName) {
+        var group = document.createElement('optgroup');
+        group.label = cityName;
+        CITIES[pref].forEach(function(c) {
+          if (c.indexOf(cityName) === 0) {
+            var opt = document.createElement('option');
+            opt.value = c;
+            opt.textContent = c.replace(cityName, '') || c;
+            group.appendChild(opt);
+          }
+        });
+        if (group.children.length > 0) citySelect.appendChild(group);
+      });
+      // その他の市
+      var otherGroup = document.createElement('optgroup');
+      otherGroup.label = 'その他の市';
+      CITIES[pref].forEach(function(c) {
+        var isOrd = ordPrefixes.some(function(p) { return c.indexOf(p) === 0; });
+        if (!isOrd) {
+          var opt = document.createElement('option');
+          opt.value = c;
+          opt.textContent = c;
+          otherGroup.appendChild(opt);
+        }
+      });
+      if (otherGroup.children.length > 0) citySelect.appendChild(otherGroup);
+    } else {
+      // 茨城・栃木など政令市なし
+      CITIES[pref].forEach(function(city) {
+        var opt = document.createElement('option');
+        opt.value = city;
+        opt.textContent = city;
+        citySelect.appendChild(opt);
+      });
+    }
+
+    citySelect.disabled = false;
+    citySelect.style.opacity = '1';
+  } else {
+    citySelect.disabled = true;
+    citySelect.style.opacity = '0.5';
+  }
+
+  filterCompanies();
+}
+
+// ─── RENDER ───
+function renderCards(list) {
+  const grid = document.getElementById('companies-grid');
+  document.getElementById('list-count').innerHTML = `全 <strong>${list.length}</strong> 社が見つかりました`;
+
+  if (list.length === 0) {
+    grid.innerHTML = '<div class="empty-state"><p>条件に一致する会社が見つかりませんでした。<br>検索条件を変えてお試しください。</p></div>';
+    return;
+  }
+
+  grid.innerHTML = list.map(c => {
+    const initials = c.name.replace(/株式会社|有限会社|合同会社/g, '').slice(0, 2);
+    const tags = c.products.slice(0, 3).map(p => `<span class="card-tag">${p}</span>`).join('');
+    const extraTags = c.products.length > 3 ? `<span class="card-tag">+${c.products.length - 3}</span>` : '';
+    const badge = getCatBadge(c.products);
+    return `
+      <div class="company-card" onclick="openModal(${c.id})">
+        <span class="card-cat-badge ${badge.cls}">${badge.label}</span>
+        <div class="card-top">
+          <div class="card-logo">${initials}</div>
+          <div class="card-info">
+            <div class="card-name">${c.name}</div>
+            <div class="card-location">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ${c.pref} ${c.city}
+            </div>
+          </div>
+          <div class="card-status">公開</div>
+        </div>
+        <div class="card-pr">${c.pr_short}</div>
+        <div class="card-tags">${tags}${extraTags}</div>
+        <div class="card-footer">
+          <div class="card-tel">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l.87-.87a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            ${c.tel}
+          </div>
+          <span class="card-btn">詳細を見る →</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ─── FILTER ───
+function filterCompanies() {
+  const kw   = document.getElementById('keyword-input').value.toLowerCase();
+  const pref = document.getElementById('pref-select').value;
+  const city = document.getElementById('city-select').value;
+
+  // 大カテゴリ配下の小カテゴリ群を取得
+  const majorSubs = activeMajor && CATEGORY_MASTER[activeMajor]
+    ? CATEGORY_MASTER[activeMajor] : [];
+
+  filtered = companies.filter(c => {
+    const matchKw   = !kw   || c.name.toLowerCase().includes(kw) || c.pr_short.toLowerCase().includes(kw);
+    const matchPref = !pref || c.pref === pref;
+    const matchCity = !city || c.city === city;
+
+    let matchProduct = true;
+    if (activeFilter) {
+      if (majorSubs.length > 0 && activeFilter === activeMajor) {
+        // 大カテゴリのみ選択：配下の小カテゴリのどれかに一致
+        matchProduct = c.products.some(p => majorSubs.includes(p));
+      } else {
+        // 小カテゴリ選択：完全一致
+        matchProduct = c.products.includes(activeFilter);
+      }
+    }
+    return matchKw && matchPref && matchCity && matchProduct;
+  });
+
+  renderCards(filtered);
+}
+
+// ─── 商品カテゴリマスター（大カテゴリ → 小カテゴリ）───
+const CATEGORY_MASTER = {
+  "足場・作業台": [
+    "枠組足場","単管足場","くさび足場（ビケ足場）","移動式足場（ローリングタワー）",
+    "吊り足場","ブラケット足場","脚立・作業台","馬脚立"
+  ],
+  "仮囲い・フェンス": [
+    "鋼板仮囲い","アルミ仮囲いパネル","プラスチックフェンス","ガードフェンス",
+    "バリケード","カラーコーン","コーンバー","ゲート・扉"
+  ],
+  "仮設ハウス・トイレ": [
+    "事務所ハウス","休憩室・食堂ハウス","仮設トイレ（洋式）","仮設トイレ（和式）",
+    "更衣室・シャワー室","倉庫・物置"
+  ],
+  "養生・防音": [
+    "養生シート（ブルーシート）","養生ネット","養生マット","防音パネル",
+    "防音シート","防塵シート・ネット","養生テープ"
+  ],
+  "昇降・運搬": [
+    "仮設階段","梯子（アルミ・鉄）","荷揚げ機・リフト","台車・手押し車",
+    "クレーン（移動式）","ベルトコンベア","一輪車"
+  ],
+  "電気・水道": [
+    "仮設電気設備","仮設照明・投光器","発電機","仮設分電盤",
+    "仮設給水設備","仮設排水設備","給湯設備"
+  ],
+  "保安・安全用品": [
+    "カラーコーン","保安灯・LED灯","安全ネット","親綱・親綱支柱",
+    "手摺（仮設手すり）","落下防止設備","安全標識・看板","ミラー・カーブミラー"
+  ],
+  "土木・地業": [
+    "敷鉄板","仮設道路材","土留め・山留め材","鋼矢板（シートパイル）",
+    "H鋼・腹起し","排水ポンプ","井戸ポイント","型枠・支保工"
+  ]
+};
+
+// ─── STATE ───
+let activeFilter = '';
+let activeMajor = '';
+let filtered = [...companies];
+
+function selectMajor(btn, major) {
+  // 大カテゴリボタンのactive切替
+  document.querySelectorAll('#major-cats .filter-tag').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeMajor = major;
+  activeFilter = major; // 大カテゴリ単体でもフィルター
+
+  const minorWrap = document.getElementById('minor-cats');
+  const minorRow  = document.getElementById('minor-cats-row');
+
+  if (major && CATEGORY_MASTER[major]) {
+    // 小カテゴリを描画
+    minorRow.innerHTML = CATEGORY_MASTER[major].map(sub =>
+      `<button class="filter-tag-minor" onclick="selectMinor(this,'${sub}')">${sub}</button>`
+    ).join('');
+    minorWrap.style.display = 'flex';
+  } else {
+    minorWrap.style.display = 'none';
+    activeFilter = '';
+  }
+  filterCompanies();
+}
+
+function selectMinor(btn, minor) {
+  document.querySelectorAll('.filter-tag-minor').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = minor;
+  filterCompanies();
+}
+
+function toggleFilter(btn, product) {
+  // 後方互換（カテゴリセクションからの呼び出し用）
+  selectMajor(btn, product);
+}
+
+function filterByCategory(major) {
+  activeMajor = major;
+  activeFilter = major;
+
+  // 大カテゴリボタンのactive切替
+  document.querySelectorAll('#major-cats .filter-tag').forEach(b => {
+    b.classList.toggle('active', b.textContent.includes(major));
+  });
+
+  const minorWrap = document.getElementById('minor-cats');
+  const minorRow  = document.getElementById('minor-cats-row');
+  if (CATEGORY_MASTER[major]) {
+    minorRow.innerHTML = CATEGORY_MASTER[major].map(sub =>
+      `<button class="filter-tag-minor" onclick="selectMinor(this,'${sub}')">${sub}</button>`
+    ).join('');
+    minorWrap.style.display = 'flex';
+  }
+
+  filterCompanies();
+  document.getElementById('companies').scrollIntoView({ behavior: 'smooth' });
+}
+
+function jumpCategory(major) {
+  filterByCategory(major);
+}
+
+function sortCompanies(val) {
+  const list = [...filtered];
+  if (val === 'name') list.sort((a, b) => a.name.localeCompare(b.name, 'ja'));
+  else if (val === 'pref') list.sort((a, b) => a.pref.localeCompare(b.pref, 'ja'));
+  renderCards(list);
+}
+
+// ─── MODAL ───
+function openModal(id) {
+  const c = companies.find(x => x.id === id);
+  if (!c) return;
+
+  const initials = c.name.replace(/株式会社|有限会社|合同会社/g, '').slice(0, 2);
+  document.getElementById('modal-logo').textContent = initials;
+  document.getElementById('modal-name').textContent = c.name;
+  document.getElementById('modal-loc').innerHTML = `
+    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    ${c.pref} ${c.city}
+  `;
+  document.getElementById('modal-pr').textContent = c.pr_long || c.pr_short;
+  document.getElementById('modal-tags').innerHTML = c.products.map(p => `<span class="modal-tag">${p}</span>`).join('');
+  document.getElementById('modal-contacts').innerHTML = `
+    <div class="modal-contact-row">
+      <div class="modal-contact-icon">📞</div>
+      ${c.tel}
+    </div>
+    <div class="modal-contact-row">
+      <div class="modal-contact-icon">📍</div>
+      ${c.pref} ${c.city}
+    </div>
+    ${c.url ? `<div class="modal-contact-row"><div class="modal-contact-icon">🌐</div><a href="${c.url}" target="_blank" style="color:var(--orange-light)">${c.url}</a></div>` : ''}
+  `;
+
+  document.getElementById('modal-tel-btn').onclick = () => { window.location.href = `tel:${c.tel.replace(/-/g, '')}`; };
+  document.getElementById('modal-site-btn').onclick = () => {
+    if (c.url) window.open(c.url, '_blank');
+    else alert('公式サイトが登録されていません。');
+  };
+
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ─── FORM ───
+function submitForm() {
+  const company = document.getElementById('form-company').value;
+  const name = document.getElementById('form-name').value;
+  const email = document.getElementById('form-email').value;
+  const pref = document.getElementById('form-pref').value;
+
+  if (!company || !name || !email || !pref) {
+    alert('必須項目（会社名・担当者名・メール・都道府県）をご入力ください。');
+    return;
+  }
+
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 4000);
+
+  ['form-company','form-name','form-email','form-products','form-pr'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('form-pref').value = '';
+}
+
+// ─── ESC KEY ───
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModalDirect();
+});
+
+init();
+</script>
+
+
+<deepl-input-controller translate="no"><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://cofdbpoegempjloogbagkncekinflcnj/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller></body></html>

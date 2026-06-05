@@ -37,6 +37,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://kanekohan.github.io/rensaku/tokyo-denki.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://kanekohan.github.io/rensaku/about.html</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
@@ -52,6 +58,6 @@
     <loc>https://kanekohan.github.io/rensaku/privacy-policy.html</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.5</priority>
   </url>
 </urlset>

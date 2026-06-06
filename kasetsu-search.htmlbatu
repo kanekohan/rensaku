@@ -206,6 +206,10 @@ section { position: relative; padding: 80px 40px; max-width: 1200px; margin: 0 a
 .badge-電気    { background:#fef08a; color:#713f12; border:1px solid #fde047; }
 .badge-保安    { background:#fee2e2; color:#991b1b; border:1px solid #fca5a5; }
 .badge-土木    { background:#e2e8f0; color:#334155; border:1px solid #cbd5e1; }
+.badge-空調    { background:#cffafe; color:#155e75; border:1px solid #67e8f9; }
+.badge-照明    { background:#fef3c7; color:#92400e; border:1px solid #fbbf24; }
+.badge-排水    { background:#dbeafe; color:#1e40af; border:1px solid #93c5fd; }
+.badge-測量    { background:#ecfccb; color:#3f6212; border:1px solid #bef264; }
 .badge-default { background:#e0f2fe; color:#075985; border:1px solid #bae6fd; }
 
 .card-top { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
@@ -414,6 +418,10 @@ footer { background: #0d2a4e; border-top: 1px solid #1a3f6e; padding: 60px 40px 
         <button class="filter-tag" onclick="selectMajor(this,&#39;電気・水道&#39;)">⚡ 電気・水道</button>
         <button class="filter-tag" onclick="selectMajor(this,&#39;保安・安全用品&#39;)">⚠️ 保安・安全用品</button>
         <button class="filter-tag" onclick="selectMajor(this,&#39;土木・地業&#39;)">🔩 土木・地業</button>
+        <button class="filter-tag" onclick="selectMajor(this,&#39;仮設冷暖房・空調&#39;)">❄️ 仮設冷暖房・空調</button>
+        <button class="filter-tag" onclick="selectMajor(this,&#39;仮設照明・投光器&#39;)">💡 仮設照明・投光器</button>
+        <button class="filter-tag" onclick="selectMajor(this,&#39;水中ポンプ・排水設備&#39;)">💧 水中ポンプ・排水設備</button>
+        <button class="filter-tag" onclick="selectMajor(this,&#39;測量機器・計測機器&#39;)">📐 測量機器・計測機器</button>
       </div>
       <div class="minor-cats-wrap" id="minor-cats">
         <div class="minor-cats-label">▼ 詳しい種類：</div>
@@ -424,7 +432,7 @@ footer { background: #0d2a4e; border-top: 1px solid #1a3f6e; padding: 60px 40px 
 
   <div class="hero-stats">
     <div class="stat">
-      <div class="stat-num" id="stat-count">221<span>社</span></div>
+      <div class="stat-num" id="stat-count">237<span>社</span></div>
       <div class="stat-label">掲載会社数</div>
     </div>
     <div class="stat">
@@ -443,7 +451,7 @@ footer { background: #0d2a4e; border-top: 1px solid #1a3f6e; padding: 60px 40px 
   <div class="section-label">COMPANY LIST</div>
   <div class="section-title">仮設会社 一覧</div>
   <div class="list-header">
-    <div class="list-count" id="list-count">全 <strong>221</strong> 社が見つかりました</div>
+    <div class="list-count" id="list-count">全 <strong>237</strong> 社が見つかりました</div>
     <select class="sort-select" onchange="sortCompanies(this.value)">
       <option value="default">おすすめ順</option>
       <option value="name">会社名順</option>
@@ -463,10 +471,14 @@ footer { background: #0d2a4e; border-top: 1px solid #1a3f6e; padding: 60px 40px 
       <div class="cat-item" onclick="jumpCategory(&#39;仮囲い・フェンス&#39;)"><div class="cat-icon">🔲</div><div class="cat-name">仮囲い・フェンス</div><div class="cat-subs">鋼板仮囲い / アルミパネル / ガードフェンス</div></div>
       <div class="cat-item" onclick="jumpCategory(&#39;仮設ハウス・トイレ&#39;)"><div class="cat-icon">🏠</div><div class="cat-name">仮設ハウス・トイレ</div><div class="cat-subs">事務所ハウス / 仮設トイレ / 更衣室</div></div>
       <div class="cat-item" onclick="jumpCategory(&#39;養生・防音&#39;)"><div class="cat-icon">🛡️</div><div class="cat-name">養生・防音</div><div class="cat-subs">養生シート / 防音パネル / 防塵シート</div></div>
-      <div class="cat-item" onclick="jumpCategory(&#39;昇降・運搬&#39;)"><div class="cat-icon">🔼</div><div class="cat-name">昇降・運搬</div><div class="cat-subs">仮設階段 / 荷揚げ機 / 台車</div></div>
+      <div class="cat-item" onclick="jumpCategory(&#39;昇降・運搬&#39;)"><div class="cat-icon">🔼</div><div class="cat-name">昇降・運搬</div><div class="cat-subs">仮設階段 / 荷揚げ機 / アルロックキャリー</div></div>
       <div class="cat-item" onclick="jumpCategory(&#39;電気・水道&#39;)"><div class="cat-icon">⚡</div><div class="cat-name">電気・水道</div><div class="cat-subs">仮設電気 / 仮設照明 / 発電機</div></div>
       <div class="cat-item" onclick="jumpCategory(&#39;保安・安全用品&#39;)"><div class="cat-icon">⚠️</div><div class="cat-name">保安・安全用品</div><div class="cat-subs">カラーコーン / 安全ネット / 親綱支柱</div></div>
       <div class="cat-item" onclick="jumpCategory(&#39;土木・地業&#39;)"><div class="cat-icon">🔩</div><div class="cat-name">土木・地業</div><div class="cat-subs">敷鉄板 / 鋼矢板 / 排水ポンプ</div></div>
+      <div class="cat-item" onclick="jumpCategory(&#39;仮設冷暖房・空調&#39;)"><div class="cat-icon">❄️</div><div class="cat-name">仮設冷暖房・空調</div><div class="cat-subs">スポットクーラー / 仮設エアコン / 大型チラー</div></div>
+      <div class="cat-item" onclick="jumpCategory(&#39;仮設照明・投光器&#39;)"><div class="cat-icon">💡</div><div class="cat-name">仮設照明・投光器</div><div class="cat-subs">LED投光器 / バルーンライト / 夜間工事用照明</div></div>
+      <div class="cat-item" onclick="jumpCategory(&#39;水中ポンプ・排水設備&#39;)"><div class="cat-icon">💧</div><div class="cat-name">水中ポンプ・排水設備</div><div class="cat-subs">水中ポンプ / 排水ポンプ / 濁水処理機</div></div>
+      <div class="cat-item" onclick="jumpCategory(&#39;測量機器・計測機器&#39;)"><div class="cat-icon">📐</div><div class="cat-name">測量機器・計測機器</div><div class="cat-subs">レーザーレベル / 墨出し器 / 騒音計</div></div>
     </div>
   </div>
 </section>
@@ -491,9 +503,9 @@ footer { background: #0d2a4e; border-top: 1px solid #1a3f6e; padding: 60px 40px 
     <div class="footer-col">
       <h4>サポート</h4>
       <ul>
-        <li><a href="#">利用規約</a></li>
+        <li><a href="./about.html">レンサクについて</a></li>
+        <li><a href="./contact.html">お問い合わせ</a></li>
         <li><a href="./privacy-policy.html">プライバシーポリシー</a></li>
-        <li><a href="#">お問い合わせ</a></li>
       </ul>
     </div>
   </div>
@@ -554,7 +566,7 @@ const companies = [
     id: 10,
     name: "株式会社アクトワンヤマイチ",
     pref: "大阪府", city: "大阪市北区",
-    products: ["枠組足場","防音パネル","養生シート（ブルーシート）","仮設電気設備","昇降設備"],
+    products: ["枠組足場","防音パネル","養生シート（ブルーシート）","仮設電気設備","昇降設備","アルロックキャリー"],
     pr_short: "建設用仮設機材のレンタル専門。足場・防音・養生など現場に必要な資材をワンストップで提供。",
     pr_long: "建設用仮設機材のレンタル会社として、足場・作業台・防音設備・養生材など幅広い仮設資材を提供。関西を中心に全国対応しています。",
     tel: "06-6342-9977",
@@ -675,7 +687,7 @@ const companies = [
     id: 21,
     name: "日本セイフティー株式会社",
     pref: "東京都", city: "新宿区",
-    products: ["鋼板仮囲い","アルミ仮囲いパネル","プラスチックフェンス","ガードフェンス","カラーコーン"],
+    products: ["鋼板仮囲い","アルミ仮囲いパネル","プラスチックフェンス","ガードフェンス","カラーコーン","アルロックキャリー"],
     pr_short: "仮囲い・安全設備の専門メーカー。アドフラットなど独自商品で現場の安全を守る。",
     pr_long: "仮囲い・保安用品の専門メーカー。グッドデザイン賞受賞の「アドフラット」をはじめ、カラーコーン・ガードフェンスなど多彩な保安製品を提供しています。",
     tel: "03-6369-2211",
@@ -2689,7 +2701,144 @@ const companies = [
     pr_short: "宮崎市の地域密着型建機レンタル。",
     pr_long: "宮崎県宮崎市本郷南方を拠点に、建設機械から仮設資材まで幅広くレンタル。宮崎県内全域にフットワーク良く対応します。",
     tel: "0985-56-5352", url: "https://www.e-king.co.jp/", status: "公開"
-  }
+  },
+  {
+    id: 230,
+    name: "株式会社クールレント",
+    pref: "東京都", city: "品川区",
+    products: ["大型チラー","仮設エアコン","スポットクーラー","送風機"],
+    pr_short: "産業用大型冷凍機・空調機のレンタル専門。大型イベントや工場の仮設冷房に対応。",
+    pr_long: "東京都品川区を拠点に、産業用大型冷凍機・空調機のレンタルとエンジニアリングを提供。大型チラーや仮設冷房設備を、現地調査・据付・試運転まで含めて相談できます。",
+    tel: "03-5495-7879", url: "https://www.coolrent.jp/", status: "公開"
+  },
+  {
+    id: 231,
+    name: "サイシュウテクノ株式会社",
+    pref: "埼玉県", city: "八潮市",
+    products: ["大型冷風機","送風機","ミストファン","スポットクーラー"],
+    pr_short: "工場・倉庫など大空間の暑さ対策に強い空調レンタル会社。関東全域に対応。",
+    pr_long: "埼玉県八潮市を拠点に、工場・倉庫・体育館などの大空間向け暑さ対策を提案。大型冷風機や送風機など、熱中症対策に必要な仮設空調機器を扱います。",
+    tel: "048-953-9914", url: "https://www.saisyu.jp/", status: "公開"
+  },
+  {
+    id: 232,
+    name: "ダイト空調工業株式会社",
+    pref: "神奈川県", city: "厚木市",
+    products: ["仮設エアコン","スポットクーラー","大型チラー","ジェットヒーター"],
+    pr_short: "仮設空調のレンタルから設置工事まで対応する空調工事会社。神奈川・関東の現場に対応。",
+    pr_long: "神奈川県厚木市を拠点に、イベント会場や建設現場向けのエアコンレンタル、仮設空調の設置・配管工事に対応。機材だけでなく施工まで相談できる空調専門会社です。",
+    tel: "046-223-5775", url: "https://www.daito-ac.jp/", status: "公開"
+  },
+  {
+    id: 233,
+    name: "株式会社シンテクノ",
+    pref: "東京都", city: "中央区",
+    products: ["仮設分電盤","仮設照明・投光器","LED投光器","仮設電気設備"],
+    pr_short: "仮設電気設備の専業レンタル会社。分電盤・照明器具・高圧機器に強い。",
+    pr_long: "東京都中央区に本社を置く、アクティオグループの仮設電気設備レンタル会社。キュービクル、トランス、分電盤、照明器具など、建設現場の電気インフラを支えます。",
+    tel: "03-6854-1210", url: "https://shin-techno.co.jp/", status: "公開"
+  },
+  {
+    id: 234,
+    name: "株式会社木下商会",
+    pref: "東京都", city: "武蔵村山市",
+    products: ["LED投光器","バルーンライト","夜間工事用照明","発電機"],
+    pr_short: "建設機械・イベント用品レンタル。LEDバルーンライトなど照明機の品揃えが豊富。",
+    pr_long: "東京都武蔵村山市を拠点に、建設機械やイベント用品をレンタル。LEDバルーンライト、LED4灯式ライト、パイプライトなど、夜間工事やイベント会場向けの照明機に対応します。",
+    tel: "042-560-4311", url: "https://www.kinoshita-lease.co.jp/", status: "公開"
+  },
+  {
+    id: 235,
+    name: "富士丸産業株式会社",
+    pref: "愛知県", city: "飛島村",
+    products: ["水中ポンプ","排水ポンプ","サンドポンプ","濁水処理機","貯水タンク"],
+    pr_short: "水中ポンプ・仮設排水設備の専門レンタル会社。全国対応で関東案件にも実績。",
+    pr_long: "愛知県を拠点に全国対応する水中ポンプ専門会社。水中ポンプや仮設排水ポンプのレンタル、設置工事、配管工事、濁水処理設備まで一括で相談できます。",
+    tel: "0567-55-0500", url: "https://fujimaru.org/", status: "公開"
+  },
+  {
+    id: 236,
+    name: "サンエー工業株式会社",
+    pref: "東京都", city: "練馬区",
+    products: ["水中ポンプ","排水ポンプ","濁水処理機","貯水タンク"],
+    pr_short: "水中ポンプ・濁水処理など水処理設備のレンタルに強い専門会社。",
+    pr_long: "東京都練馬区を拠点に、建設工事向けの水処理設備をプランニング。水中ポンプ、排水設備、濁水処理、中和処理など、搬入・据付・試運転・メンテナンスまで対応します。",
+    tel: "03-3557-2333", url: "https://www.sanee.co.jp/", status: "公開"
+  },
+  {
+    id: 237,
+    name: "株式会社ソーキ",
+    pref: "東京都", city: "江戸川区",
+    products: ["レーザーレベル","オートレベル","トランシット","騒音計","振動計","粉塵計"],
+    pr_short: "測量機・計測機器レンタルの専門会社。関東機材技術センターを江戸川区に展開。",
+    pr_long: "測量機・測定器・計測器レンタルの専門会社。レーザーレベル、測量機、騒音計、振動計など、建設現場や環境測定で必要な機器を幅広く扱います。",
+    tel: "0120-856-991", url: "https://sooki.co.jp/", status: "公開"
+  },
+  {
+    id: 238,
+    name: "株式会社レックス",
+    pref: "東京都", city: "江東区",
+    products: ["レーザーレベル","トランシット","騒音計","振動計","粉塵計","環境計測器"],
+    pr_short: "計測器・測定器レンタルの専門会社。東京営業所から関東の計測ニーズに対応。",
+    pr_long: "計測器・測定器レンタルの専門会社。東京営業所を江東区に置き、測量機、環境計測器、騒音計、振動計など、建設・土木・調査現場向けの機器を提供します。",
+    tel: "0798-38-6363", url: "https://www.rex-rental.jp/", status: "公開"
+  },
+  {
+    id: 239,
+    name: "東京レンタル株式会社",
+    pref: "東京都", city: "杉並区",
+    products: ["スポットクーラー","水中ポンプ","バルーンライト","発電機"],
+    pr_short: "建設機械・建設関連商品のレンタル会社。東京西オフィスから都内西部の現場に対応。",
+    pr_long: "東京西オフィスを東京都杉並区に置き、建設機械・建設関連商品のレンタル、修理、販売を行う会社。スポットクーラー、水中ポンプ、バルーンライトなど現場向け機材を幅広く扱います。",
+    tel: "03-3327-5870", url: "https://tokyo.jpncat.com/", status: "公開"
+  },
+  {
+    id: 240,
+    name: "株式会社鳴浜リース",
+    pref: "東京都", city: "豊島区",
+    products: ["発電機","仮設照明・投光器","LED投光器","仮設電気設備"],
+    pr_short: "建設機械・仮設機材のレンタル会社。発電機レンタルから始まった地域密着企業。",
+    pr_long: "東京都豊島区東池袋に本社を置き、建設機械・仮設機材のレンタル、販売、修理に対応。発電機、仮設機材、安全用品など、首都圏の現場を支える機材を提供します。",
+    tel: "03-3987-5311", url: "https://www.naruhama.co.jp/", status: "公開"
+  },
+  {
+    id: 241,
+    name: "西部機械株式会社",
+    pref: "東京都", city: "中野区",
+    products: ["ジェットヒーター","送風機","水中ポンプ","発電機"],
+    pr_short: "中野区の建設用機械器具・仮設資材レンタル会社。駅近で都内現場に対応。",
+    pr_long: "東京都中野区野方を拠点に、貸建設用機械器具、仮設資材レンタル・リース、仮設資材販売を行う会社。ジェットヒーター、送風機、水中ポンプ、発電機など現場の小型機材相談先として活用できます。",
+    tel: "03-3337-0461", url: "https://www.seibukikai.com/", status: "公開"
+  },
+  {
+    id: 242,
+    name: "写光レンタル販売株式会社",
+    pref: "東京都", city: "目黒区",
+    products: ["仮設エアコン","スポットクーラー","ジェットヒーター","事務所ハウス","仮設トイレ（洋式）"],
+    pr_short: "建設現場事務所向けのOA機器・家具・家電・冷暖房機器・仮設ハウスのレンタル会社。",
+    pr_long: "東京都目黒区を拠点に、OA機器、オフィス家具、家庭用電気製品、冷暖房機器、仮設ハウス・トイレなどのレンタル及び販売を展開。現場事務所の立ち上げや仮設設備に強い会社です。",
+    tel: "03-5708-5211", url: "https://www.syakourental.com/", status: "公開"
+  },
+  {
+    id: 243,
+    name: "小松物産リース株式会社",
+    pref: "東京都", city: "足立区",
+    products: ["LED投光器","仮設照明・投光器","事務所ハウス","仮設トイレ（洋式）","発電機"],
+    pr_short: "足立区の総合建設機械・建設用資材リース会社。都内・埼玉の機材センターで対応。",
+    pr_long: "東京都足立区を拠点に、総合建設機械および建設用資材・部材の賃貸、販売、修理を行う会社。照明器具、仮設ハウス・トイレ、発電機など現場向け資材を扱います。",
+    tel: "03-3884-1066", url: "https://kblease.co.jp/", status: "公開"
+  },
+  {
+  id: 244,
+  name: "株式会社建昇",
+  pref: "東京都", city: "江東区",
+ products: ["ユニットハウス（事務所・休憩所）","仮設トイレ（洋式・快適トイレ）","ガードフェンス","アルロックキャリー"],
+ pr_short: "仮設ハウス・トイレの専門レンタル会社。仮囲い資材やアルロックキャリーも取り扱い。",
+  pr_long: "東京都江東区を拠点に、仮設ハウス・トイレのレンタルから販売まで対応する仮設資材の総合デパート。現地組み立てハウス・ユニットハウス・仮囲い資材・アルロックキャリーなど、建設現場に必要な仮設設備をトータルで提供します。",
+  tel: "03-6666-6404",
+  url: "https://www.ken-sho.co.jp/",
+  status: "公開"
+}
 ];
 
 const CITIES = {
@@ -2794,7 +2943,7 @@ const CITIES = {
     "碧南市","刈谷市","豊田市","安城市","西尾市","蒲郡市","犬山市","常滑市",
     "江南市","小牧市","稲沢市","新城市","東海市","大府市","知多市","知立市",
     "尾張旭市","高浜市","岩倉市","豊明市","日進市","田原市","愛西市","清須市",
-    "北名古屋市","弥富市","みよし市","あま市","長久手市"
+    "北名古屋市","弥富市","みよし市","あま市","長久手市","飛島村"
   ],
   "北海道": [
     "札幌市中央区","札幌市北区","札幌市東区","札幌市白石区","札幌市豊平区",
@@ -2996,16 +3145,16 @@ const CATEGORY_MASTER = {
     "鋼板仮囲い","アルミ仮囲いパネル","プラスチックフェンス","ガードフェンス",
     "バリケード","カラーコーン","コーンバー","ゲート・扉"
   ],
-  "仮設ハウス・トイレ": [
+ "仮設ハウス・トイレ": [
     "事務所ハウス","休憩室・食堂ハウス","仮設トイレ（洋式）","仮設トイレ（和式）",
-    "更衣室・シャワー室","倉庫・物置"
+    "更衣室・シャワー室","倉庫・物置","ユニットハウス（事務所・休憩所）","仮設トイレ（洋式・快適トイレ）"
   ],
   "養生・防音": [
     "養生シート（ブルーシート）","養生ネット","養生マット","防音パネル",
     "防音シート","防塵シート・ネット","養生テープ"
   ],
   "昇降・運搬": [
-    "仮設階段","梯子（アルミ・鉄）","荷揚げ機・リフト","台車・手押し車",
+    "仮設階段","梯子（アルミ・鉄）","荷揚げ機・リフト","台車・手押し車","アルロックキャリー",
     "クレーン（移動式）","ベルトコンベア","一輪車"
   ],
   "電気・水道": [
@@ -3019,6 +3168,22 @@ const CATEGORY_MASTER = {
   "土木・地業": [
     "敷鉄板","仮設道路材","土留め・山留め材","鋼矢板（シートパイル）",
     "H鋼・腹起し","排水ポンプ","井戸ポイント","型枠・支保工"
+  ],
+  "仮設冷暖房・空調": [
+    "スポットクーラー","仮設エアコン","大型冷風機","大型扇風機","送風機",
+    "ジェットヒーター","大型チラー","ミストファン"
+  ],
+  "仮設照明・投光器": [
+    "仮設照明・投光器","LED投光器","バルーンライト","夜間工事用照明",
+    "工事灯","ポータブル照明","仮設分電盤"
+  ],
+  "水中ポンプ・排水設備": [
+    "水中ポンプ","排水ポンプ","サンドポンプ","濁水処理機",
+    "送水ホース","貯水タンク","仮設排水設備"
+  ],
+  "測量機器・計測機器": [
+    "レーザーレベル","オートレベル","トランシット","墨出し器",
+    "騒音計","振動計","粉塵計","環境計測器"
   ]
 };
 
@@ -3247,9 +3412,13 @@ function getCatBadge(products) {
   if (p.indexOf('トイレ') !== -1 || p.indexOf('ハウス') !== -1 || p.indexOf('更衣') !== -1 || p.indexOf('倉庫') !== -1) return { cls: 'badge-仮設ハウス', label: '🏠 仮設ハウス・トイレ' };
   if (p.indexOf('養生') !== -1 || p.indexOf('防音') !== -1 || p.indexOf('防塵') !== -1) return { cls: 'badge-養生', label: '🛡️ 養生・防音' };
   if (p.indexOf('階段') !== -1 || p.indexOf('梯子') !== -1 || p.indexOf('荷揚') !== -1 || p.indexOf('台車') !== -1 || p.indexOf('クレーン') !== -1) return { cls: 'badge-昇降', label: '🔼 昇降・運搬' };
-  if (p.indexOf('電気') !== -1 || p.indexOf('照明') !== -1 || p.indexOf('発電') !== -1 || p.indexOf('水道') !== -1) return { cls: 'badge-電気', label: '⚡ 電気・水道' };
+  if (p.indexOf('電気') !== -1 || p.indexOf('照明') !== -1 || p.indexOf('発電') !== -1 || p.indexOf('水道') !== -1 || p.indexOf('分電') !== -1) return { cls: 'badge-電気', label: '⚡ 電気・水道' };
   if (p.indexOf('安全') !== -1 || p.indexOf('親綱') !== -1 || p.indexOf('手摺') !== -1 || p.indexOf('落下') !== -1) return { cls: 'badge-保安', label: '⚠️ 保安・安全用品' };
   if (p.indexOf('敷鉄板') !== -1 || p.indexOf('矢板') !== -1 || p.indexOf('土留') !== -1 || p.indexOf('排水') !== -1 || p.indexOf('型枠') !== -1) return { cls: 'badge-土木', label: '🔩 土木・地業' };
+  if (p.indexOf('クーラー') !== -1 || p.indexOf('エアコン') !== -1 || p.indexOf('冷風') !== -1 || p.indexOf('送風') !== -1 || p.indexOf('ヒーター') !== -1 || p.indexOf('チラー') !== -1 || p.indexOf('ミスト') !== -1) return { cls: 'badge-空調', label: '❄️ 仮設冷暖房・空調' };
+  if (p.indexOf('投光') !== -1 || p.indexOf('照明') !== -1 || p.indexOf('ライト') !== -1 || p.indexOf('工事灯') !== -1) return { cls: 'badge-照明', label: '💡 仮設照明・投光器' };
+  if (p.indexOf('水中ポンプ') !== -1 || p.indexOf('サンドポンプ') !== -1 || p.indexOf('濁水') !== -1 || p.indexOf('貯水') !== -1 || p.indexOf('送水') !== -1) return { cls: 'badge-排水', label: '💧 水中ポンプ・排水設備' };
+  if (p.indexOf('レーザー') !== -1 || p.indexOf('レベル') !== -1 || p.indexOf('トランシット') !== -1 || p.indexOf('墨出し') !== -1 || p.indexOf('騒音') !== -1 || p.indexOf('振動') !== -1 || p.indexOf('粉塵') !== -1 || p.indexOf('計測') !== -1) return { cls: 'badge-測量', label: '📐 測量機器・計測機器' };
   return { cls: 'badge-default', label: p };
 }
 

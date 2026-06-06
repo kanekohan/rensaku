@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kanekohan.github.io/rensaku/sitemap.xml

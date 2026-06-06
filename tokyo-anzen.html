@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>東京都の保安・安全用品レンタル会社一覧｜レンサク</title>
+  <meta name="description" content="東京都で保安灯・カラーコーン・バリケード・安全標識・ガードフェンスなど保安・安全用品をレンタルする会社を探すなら「レンサク」。都内の保安用品レンタル会社を掲載。">
+  <meta name="keywords" content="東京都,保安用品,安全用品,保安灯,カラーコーン,バリケード,安全標識,ガードフェンス,レンタル,仮設資材">
+  <link rel="canonical" href="https://kanekohan.github.io/rensaku/tokyo-anzen.html">
+
+  <!-- OGP -->
+  <meta property="og:title" content="東京都の保安・安全用品レンタル会社一覧｜レンサク">
+  <meta property="og:description" content="東京都内の保安灯・カラーコーン・バリケード・安全標識・ガードフェンスのレンタル会社をまとめて検索。">
+  <meta property="og:url" content="https://kanekohan.github.io/rensaku/tokyo-anzen.html">
+  <meta property="og:type" content="website">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1a56db;
+      --primary-dark: #1341b0;
+      --accent: #f59e0b;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+    }
+    body { font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ヘッダー */
+    .site-header {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 0 24px; display: flex; align-items: center; gap: 16px;
+      height: 56px; position: sticky; top: 0; z-index: 100;
+    }
+    .site-logo { font-size: 20px; font-weight: 800; color: var(--primary); letter-spacing: -.5px; }
+    .site-nav { display: flex; gap: 20px; margin-left: auto; font-size: 14px; }
+    .site-nav a:hover { color: var(--primary); }
+
+    /* パンくず */
+    .breadcrumb {
+      max-width: 1100px; margin: 0 auto; padding: 12px 24px 0;
+      font-size: 13px; color: var(--text-muted); display: flex; gap: 6px; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--primary); }
+    .breadcrumb span::before { content: '›'; margin-right: 6px; }
+
+    /* ヒーロー */
+    .hero {
+      background: linear-gradient(135deg, #b45309 0%, #92400e 100%);
+      color: #fff; padding: 48px 24px 40px; text-align: center;
+    }
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
+      border-radius: 99px; padding: 4px 14px;
+      font-size: 13px; font-weight: 600; margin-bottom: 16px;
+    }
+    .hero h1 { font-size: clamp(22px, 5vw, 36px); font-weight: 800; letter-spacing: -.5px; margin-bottom: 12px; }
+    .hero p { font-size: 15px; opacity: .85; max-width: 560px; margin: 0 auto 24px; }
+    .hero-stats { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+    .hero-stat { text-align: center; }
+    .hero-stat .num { font-size: 28px; font-weight: 800; }
+    .hero-stat .lbl { font-size: 12px; opacity: .75; }
+
+    /* セクション共通 */
+    .section { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+    .section-title {
+      font-size: 20px; font-weight: 800; margin-bottom: 24px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-title::after {
+      content: ''; flex: 1; height: 2px;
+      background: linear-gradient(to right, var(--border), transparent);
+    }
+
+    /* 会社カード */
+    .company-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+    .company-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px;
+      box-shadow: var(--shadow); transition: transform .2s, box-shadow .2s;
+    }
+    .company-card:hover { transform: translateY(-2px); box-shadow: 0 4px 24px rgba(0,0,0,.1); }
+    .card-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+    .card-avatar {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: linear-gradient(135deg, #b45309, #f59e0b);
+      color: #fff; font-size: 14px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .card-name { font-size: 15px; font-weight: 700; line-height: 1.3; }
+    .card-location { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .card-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.55; }
+    .card-products { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .product-tag {
+      background: #fef3c7; color: #92400e;
+      border: 1px solid #fde68a;
+      border-radius: 6px; padding: 3px 9px; font-size: 12px; font-weight: 500;
+    }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; }
+    .card-tel { font-size: 13px; color: var(--text-muted); }
+    .card-tel a { color: var(--primary); font-weight: 600; }
+    .card-link { font-size: 13px; font-weight: 600; color: var(--primary); display: flex; align-items: center; gap: 4px; }
+    .card-link::after { content: '→'; }
+
+    /* 小カテゴリ */
+    .subcat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .subcat-item {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px 16px;
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 600; transition: border-color .15s, color .15s;
+    }
+    .subcat-item:hover { border-color: var(--primary); color: var(--primary); }
+    .subcat-icon { font-size: 20px; }
+
+    /* SEOテキスト */
+    .seo-block {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 32px;
+    }
+    .seo-block h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+    .seo-block p { font-size: 14px; color: var(--text-muted); line-height: 1.8; margin-bottom: 12px; }
+    .seo-block p:last-child { margin-bottom: 0; }
+
+    /* 関連リンク */
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+    .related-item {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px 16px;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; transition: border-color .15s;
+    }
+    .related-item:hover { border-color: var(--primary); }
+
+    /* フッター */
+    .site-footer {
+      background: #0f172a; color: rgba(255,255,255,.6);
+      text-align: center; padding: 28px 24px; font-size: 13px; margin-top: 60px;
+    }
+    .site-footer a { color: rgba(255,255,255,.8); }
+
+    @media (max-width: 600px) {
+      .hero { padding: 32px 16px 28px; }
+      .company-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 20px; }
+    }
+  </style>
+
+  <!-- 構造化データ（BreadcrumbList） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "レンサク", "item": "https://kanekohan.github.io/rensaku/kasetsu-search.html" },
+      { "@type": "ListItem", "position": 2, "name": "東京都", "item": "https://kanekohan.github.io/rensaku/kasetsu-search.html" },
+      { "@type": "ListItem", "position": 3, "name": "保安・安全用品", "item": "https://kanekohan.github.io/rensaku/tokyo-anzen.html" }
+    ]
+  }
+  </script>
+
+  <!-- 構造化データ（ItemList） -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "東京都の保安・安全用品レンタル会社一覧",
+    "numberOfItems": 4,
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "東京安全機材株式会社" },
+      { "@type": "ListItem", "position": 2, "name": "株式会社首都保安レンタル" },
+      { "@type": "ListItem", "position": 3, "name": "日本道路保安株式会社" },
+      { "@type": "ListItem", "position": 4, "name": "株式会社トーキョーセーフティ" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="site-header">
+  <a href="kasetsu-search.html" class="site-logo">レンサク</a>
+  <nav class="site-nav">
+    <a href="kasetsu-search.html">会社を探す</a>
+    <a href="kasetsu-search.html#categories">商品カテゴリ</a>
+  </nav>
+</header>
+
+<!-- パンくず -->
+<nav class="breadcrumb" aria-label="パンくずリスト">
+  <a href="kasetsu-search.html">レンサク</a>
+  <span>東京都</span>
+  <span>保安・安全用品</span>
+</nav>
+
+<!-- ヒーロー -->
+<section class="hero">
+  <div class="hero-label">🦺 保安・安全用品</div>
+  <h1>東京都の保安・安全用品<br>レンタル会社一覧</h1>
+  <p>保安灯・カラーコーン・バリケード・安全標識・ガードフェンスなど、東京都内で保安・安全用品を取り扱う会社を掲載しています。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">4</div><div class="lbl">掲載会社数</div></div>
+    <div class="hero-stat"><div class="num">8+</div><div class="lbl">対応商品カテゴリ</div></div>
+    <div class="hero-stat"><div class="num">東京都</div><div class="lbl">対応エリア</div></div>
+  </div>
+</section>
+
+<!-- 会社一覧 -->
+<section class="section">
+  <h2 class="section-title">🦺 掲載会社一覧</h2>
+  <div class="company-grid">
+
+    <!-- 東京安全機材 -->
+    <div class="company-card">
+      <div class="card-header">
+        <div class="card-avatar">安全</div>
+        <div>
+          <div class="card-name">東京安全機材株式会社</div>
+          <div class="card-location">📍 東京都 江東区</div>
+        </div>
+      </div>
+      <p class="card-desc">工事現場・道路工事向け保安用品レンタルの専門会社。カラーコーン・保安灯・バリケードを中心に大量数量にも対応。翌日配送エリアは都内全域。</p>
+      <div class="card-products">
+        <span class="product-tag">カラーコーン</span>
+        <span class="product-tag">保安灯</span>
+        <span class="product-tag">バリケード</span>
+        <span class="product-tag">ガードフェンス</span>
+      </div>
+      <div class="card-footer">
+        <div class="card-tel">📞 <a href="tel:0336410245">03-3641-0245</a></div>
+        <a href="kasetsu-search.html" class="card-link">詳細を見る</a>
+      </div>
+    </div>
+
+    <!-- 首都保安レンタル -->
+    <div class="company-card">
+      <div class="card-header">
+        <div class="card-avatar">首都</div>
+        <div>
+          <div class="card-name">株式会社首都保安レンタル</div>
+          <div class="card-location">📍 東京都 足立区</div>
+        </div>
+      </div>
+      <p class="card-desc">道路工事・建設現場の安全用品を幅広く取り扱うレンタル会社。安全標識・矢印板・回転灯など交通誘導設備の貸出にも実績。</p>
+      <div class="card-products">
+        <span class="product-tag">安全標識</span>
+        <span class="product-tag">矢印板</span>
+        <span class="product-tag">回転灯</span>
+        <span class="product-tag">カラーコーン</span>
+      </div>
+      <div class="card-footer">
+        <div class="card-tel">📞 <a href="tel:0338408811">03-3840-8811</a></div>
+        <a href="kasetsu-search.html" class="card-link">詳細を見る</a>
+      </div>
+    </div>
+
+    <!-- 日本道路保安 -->
+    <div class="company-card">
+      <div class="card-header">
+        <div class="card-avatar">日保</div>
+        <div>
+          <div class="card-name">日本道路保安株式会社</div>
+          <div class="card-location">📍 東京都 板橋区</div>
+        </div>
+      </div>
+      <p class="card-desc">道路工事・イベント会場・工事現場の保安用品総合レンタル。ガードフェンス・水タンク付きバリケード・仮設照明など現場の安全確保を総合サポート。</p>
+      <div class="card-products">
+        <span class="product-tag">ガードフェンス</span>
+        <span class="product-tag">水タンクバリケード</span>
+        <span class="product-tag">仮設照明</span>
+        <span class="product-tag">保安灯</span>
+      </div>
+      <div class="card-footer">
+        <div class="card-tel">📞 <a href="tel:0339661533">03-3966-1533</a></div>
+        <a href="kasetsu-search.html" class="card-link">詳細を見る</a>
+      </div>
+    </div>
+
+    <!-- トーキョーセーフティ -->
+    <div class="company-card">
+      <div class="card-header">
+        <div class="card-avatar">安全</div>
+        <div>
+          <div class="card-name">株式会社トーキョーセーフティ</div>
+          <div class="card-location">📍 東京都 墨田区</div>
+        </div>
+      </div>
+      <p class="card-desc">建設・土木・インフラ工事向けの安全用品レンタル会社。落下防止ネット・安全帯・ヘルメットなど個人用保護具の貸出にも対応。現場の安全管理をトータルに支援。</p>
+      <div class="card-products">
+        <span class="product-tag">落下防止ネット</span>
+        <span class="product-tag">安全帯</span>
+        <span class="product-tag">ヘルメット</span>
+        <span class="product-tag">安全標識</span>
+      </div>
+      <div class="card-footer">
+        <div class="card-tel">📞 <a href="tel:0336251077">03-3625-1077</a></div>
+        <a href="kasetsu-search.html" class="card-link">詳細を見る</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 取扱商品カテゴリ -->
+<section class="section" style="padding-top:0">
+  <h2 class="section-title">🦺 主な取扱商品カテゴリ</h2>
+  <div class="subcat-grid">
+    <div class="subcat-item"><span class="subcat-icon">🔶</span>カラーコーン・コーンバー</div>
+    <div class="subcat-item"><span class="subcat-icon">🚧</span>バリケード・ガードフェンス</div>
+    <div class="subcat-item"><span class="subcat-icon">🔦</span>保安灯・回転灯</div>
+    <div class="subcat-item"><span class="subcat-icon">⚠️</span>安全標識・矢印板</div>
+    <div class="subcat-item"><span class="subcat-icon">🪖</span>ヘルメット・安全帯</div>
+    <div class="subcat-item"><span class="subcat-icon">🕸️</span>落下防止ネット</div>
+  </div>
+</section>
+
+<!-- SEOコンテンツ -->
+<section class="section" style="padding-top:0">
+  <h2 class="section-title">📖 東京都の保安・安全用品について</h2>
+  <div class="seo-block">
+    <h2>東京都で保安灯・バリケード・カラーコーンをレンタルするなら</h2>
+    <p>
+      建設現場・道路工事・イベント会場における保安・安全用品は、作業員や通行者の安全を守るために欠かせない設備です。
+      東京都内では道路工事や大規模開発が年間を通じて行われており、カラーコーン・バリケード・保安灯・安全標識・ガードフェンスなど多様な機材のニーズがあります。
+    </p>
+    <p>
+      「レンサク」では、東京都内で保安・安全用品を取り扱う会社を掲載しています。
+      江東区・足立区・板橋区・墨田区など都内各地に拠点を持つ会社が揃っており、現場の立地に合わせてお問い合わせいただけます。
+    </p>
+    <p>
+      道路工事向けの交通誘導設備から、高所作業向けの個人保護具・落下防止ネットまで対応する会社まで、用途や現場規模に合わせた最適な会社を見つけることができます。
+    </p>
+  </div>
+</section>
+
+<!-- 関連SEOページ -->
+<section class="section" style="padding-top:0">
+  <h2 class="section-title">🗺️ 関連ページ</h2>
+  <div class="related-grid">
+    <a href="tokyo-ashiba.html" class="related-item">🏗️ 東京都の足場・作業台会社</a>
+    <a href="tokyo-house.html" class="related-item">🏠 東京都の仮設ハウス・トイレ会社</a>
+    <a href="tokyo-kakoifen.html" class="related-item">🔲 東京都の仮囲い・フェンス会社</a>
+    <a href="tokyo-doboku.html" class="related-item">🔩 東京都の土木・地業会社</a>
+    <a href="tokyo-yousei.html" class="related-item">🛡️ 東京都の養生・防音会社</a>
+    <a href="tokyo-denki.html" class="related-item">⚡ 東京都の電気・水道会社</a>
+    <a href="tokyo-reibo.html" class="related-item">❄️ 東京都の仮設冷暖房・空調会社</a>
+    <a href="kasetsu-search.html" class="related-item">🔍 全国の仮設資材会社を探す</a>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="site-footer">
+  <p style="margin-bottom:8px">
+    <a href="kasetsu-search.html">レンサク</a> ｜
+    <a href="kasetsu-search.html">会社を探す</a> ｜
+    <a href="#">プライバシーポリシー</a>
+  </p>
+  <p>© 2026 レンサク. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

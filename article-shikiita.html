@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>敷鉄板とプラシキの使い分け｜メリット・デメリットを徹底比較｜レンサク</title>
+  <meta name="description" content="建設現場でよく使われる敷鉄板（鉄板敷き）とプラシキ（プラスチック敷板）の違いを徹底比較。重量・コスト・用途・環境への影響など、現場担当者が知っておきたい選び方のポイントを解説します。">
+  <link rel="canonical" href="https://rensaku.com/article-shikiita.html">
+  <meta property="og:title" content="敷鉄板とプラシキの使い分け｜メリット・デメリットを徹底比較｜レンサク">
+  <meta property="og:description" content="敷鉄板とプラシキ（プラスチック敷板）の違いを徹底比較。重量・コスト・用途・環境への影響など選び方のポイントを解説。">
+  <meta property="og:url" content="https://rensaku.com/article-shikiita.html">
+  <meta property="og:type" content="article">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1a56db;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+    }
+    body { font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+
+    .site-header {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 0 24px; display: flex; align-items: center; gap: 16px;
+      height: 56px; position: sticky; top: 0; z-index: 100;
+    }
+    .site-logo { font-size: 20px; font-weight: 800; color: var(--primary); letter-spacing: -.5px; }
+    .site-nav { display: flex; gap: 20px; margin-left: auto; font-size: 14px; }
+    .site-nav a:hover { color: var(--primary); }
+
+    .breadcrumb {
+      max-width: 860px; margin: 0 auto; padding: 12px 24px 0;
+      font-size: 13px; color: var(--text-muted); display: flex; gap: 6px; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--primary); }
+    .breadcrumb span::before { content: '›'; margin-right: 6px; }
+
+    .hero {
+      background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+      color: #fff; padding: 48px 24px 40px; text-align: center;
+    }
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
+      border-radius: 99px; padding: 4px 14px;
+      font-size: 13px; font-weight: 600; margin-bottom: 16px;
+    }
+    .hero h1 { font-size: clamp(20px, 5vw, 32px); font-weight: 800; letter-spacing: -.5px; margin-bottom: 12px; }
+    .hero p { font-size: 15px; opacity: .85; max-width: 560px; margin: 0 auto; }
+
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 40px 24px 60px; }
+
+    .article-meta {
+      display: flex; gap: 16px; font-size: 13px; color: var(--text-muted);
+      margin-bottom: 32px; flex-wrap: wrap; align-items: center;
+    }
+    .meta-tag {
+      background: #fef3c7; color: #92400e; border: 1px solid #fcd34d;
+      border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 500;
+    }
+
+    .article-body h2 {
+      font-size: 20px; font-weight: 800; margin: 40px 0 16px;
+      padding-left: 12px; border-left: 4px solid #b45309;
+      line-height: 1.4;
+    }
+    .article-body h3 { font-size: 16px; font-weight: 700; margin: 28px 0 10px; }
+    .article-body p { font-size: 15px; line-height: 1.85; color: #334155; margin-bottom: 16px; }
+    .article-body ul, .article-body ol {
+      margin: 12px 0 20px 20px; font-size: 15px; line-height: 1.8; color: #334155;
+    }
+    .article-body li { margin-bottom: 6px; }
+
+    /* 比較テーブル */
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 28px; font-size: 14px; }
+    .compare-table th, .compare-table td {
+      padding: 12px 16px; border: 1px solid var(--border); text-align: left; vertical-align: top;
+    }
+    .compare-table thead th { background: #1e293b; color: #fff; font-weight: 700; }
+    .compare-table thead th:first-child { background: #1e293b; }
+    .compare-table tbody tr:nth-child(even) td { background: #f8fafc; }
+    .compare-table .col-tetsu { background: #fef9f0 !important; }
+    .compare-table .col-pla { background: #f0fdf4 !important; }
+    .good { color: #16a34a; font-weight: 600; }
+    .bad { color: #dc2626; font-weight: 600; }
+
+    /* 用途カード */
+    .usecase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0 28px; }
+    .usecase-card {
+      border-radius: var(--radius); padding: 20px; border: 2px solid;
+    }
+    .usecase-card.tetsu { border-color: #fcd34d; background: #fffbeb; }
+    .usecase-card.pla { border-color: #86efac; background: #f0fdf4; }
+    .usecase-card h3 { font-size: 15px; font-weight: 800; margin-bottom: 12px; }
+    .usecase-card.tetsu h3 { color: #92400e; }
+    .usecase-card.pla h3 { color: #166534; }
+    .usecase-card ul { margin: 0 0 0 16px; font-size: 13px; color: #334155; line-height: 1.8; }
+
+    .info-box {
+      background: #f0f9ff; border: 1px solid #bae6fd; border-radius: var(--radius);
+      padding: 20px 24px; margin: 24px 0;
+    }
+    .info-box-title { font-size: 14px; font-weight: 700; color: #0369a1; margin-bottom: 8px; }
+    .info-box p { font-size: 14px; color: #334155; margin: 0; line-height: 1.75; }
+
+    .cta-block {
+      background: linear-gradient(135deg, #92400e, #b45309);
+      border-radius: var(--radius); padding: 32px; text-align: center; margin-top: 48px; color: #fff;
+    }
+    .cta-block h3 { font-size: 18px; font-weight: 800; margin-bottom: 10px; }
+    .cta-block p { font-size: 14px; opacity: .85; margin-bottom: 20px; }
+    .cta-btn {
+      display: inline-block; background: #fff; color: #92400e;
+      font-weight: 700; font-size: 15px; padding: 12px 32px;
+      border-radius: 8px; transition: opacity .2s;
+    }
+    .cta-btn:hover { opacity: .9; }
+
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin-top: 16px; }
+    .related-item {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px 16px;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; transition: border-color .15s;
+    }
+    .related-item:hover { border-color: var(--primary); }
+
+    .section-title {
+      font-size: 18px; font-weight: 800; margin: 48px 0 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-title::after { content: ''; flex: 1; height: 2px; background: linear-gradient(to right, var(--border), transparent); }
+
+    .site-footer {
+      background: #0f172a; color: rgba(255,255,255,.6);
+      text-align: center; padding: 28px 24px; font-size: 13px;
+    }
+    .site-footer a { color: rgba(255,255,255,.8); }
+    .site-footer p { margin-bottom: 8px; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 32px 16px 28px; }
+      .usecase-grid { grid-template-columns: 1fr; }
+      .compare-table { font-size: 12px; }
+      .compare-table th, .compare-table td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="kasetsu-search.html" class="site-logo">レンサク</a>
+  <nav class="site-nav">
+    <a href="kasetsu-search.html">会社を探す</a>
+    <a href="article-list.html">記事一覧</a>
+  </nav>
+</header>
+
+<nav class="breadcrumb" aria-label="パンくずリスト">
+  <a href="kasetsu-search.html">レンサク</a>
+  <span>記事</span>
+  <span>敷鉄板とプラシキの使い分け</span>
+</nav>
+
+<section class="hero">
+  <div class="hero-label">🔩 資材比較</div>
+  <h1>敷鉄板とプラシキの使い分け<br>メリット・デメリットを徹底比較</h1>
+  <p>重量・コスト・環境への影響まで、現場担当者が知っておきたい選び方を解説</p>
+</section>
+
+<div class="article-wrap">
+  <div class="article-meta">
+    <span>📅 2026年6月</span>
+    <span class="meta-tag">敷板</span>
+    <span class="meta-tag">仮設資材</span>
+    <span class="meta-tag">比較</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>建設・土木工事の現場では、重機や車両の走行ルートを確保するために「敷板」を使います。大きく分けると、長年使われてきた「敷鉄板（しきてっぱん）」と、近年普及が進む「プラシキ（プラスチック敷板）」の2種類があります。どちらを選ぶべきか迷う現場担当者も多いため、このページでは両者の特徴・メリット・デメリットをわかりやすく比較・解説します。</p>
+
+    <h2>1. 敷鉄板とは</h2>
+    <p>敷鉄板は、鋼材を板状に加工した重量型の敷板です。建設・土木現場での使用実績が非常に長く、地盤が軟弱な場所での重機走行路の確保や、掘削・埋設工事における仮設道路として幅広く使われています。</p>
+    <p>一般的なサイズは幅1,000mm×長さ2,000mmや幅1,500mm×長さ3,000mmなどがあり、厚さは16mm〜22mm程度。1枚あたりの重量は100kg〜300kg以上になるものも珍しくありません。そのため、設置・回収には重機（クレーンやバックホウなど）が必要です。</p>
+
+    <h2>2. プラシキ（プラスチック敷板）とは</h2>
+    <p>プラシキは、高密度ポリエチレン（HDPE）などの樹脂素材を板状に成形した軽量の敷板です。「プラ敷き」「樹脂マット」などとも呼ばれます。2010年代以降、軽量・低騒音・環境への配慮といった観点から急速に普及が進んでいます。</p>
+    <p>代表的なサイズは幅1,000mm×長さ2,000mm程度で、厚さ35mm〜60mm程度。同サイズの鉄板と比べると重量は約1/7〜1/10と非常に軽く、2〜3人の人力で設置・回収が可能です。</p>
+
+    <h2>3. 敷鉄板 vs プラシキ：徹底比較</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>比較項目</th>
+          <th>敷鉄板</th>
+          <th>プラシキ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>重量</strong></td>
+          <td class="col-tetsu"><span class="bad">重い（100〜300kg/枚以上）</span><br>重機による設置が必要</td>
+          <td class="col-pla"><span class="good">軽い（10〜30kg/枚程度）</span><br>人力で設置可能</td>
+        </tr>
+        <tr>
+          <td><strong>耐荷重</strong></td>
+          <td class="col-tetsu"><span class="good">非常に高い</span><br>大型重機・大型トレーラーにも対応</td>
+          <td class="col-pla">製品によって異なる<br>大型重機には不向きな場合も</td>
+        </tr>
+        <tr>
+          <td><strong>レンタル費用</strong></td>
+          <td class="col-tetsu">やや高め<br>（輸送・設置の重機費も別途）</td>
+          <td class="col-pla"><span class="good">比較的安価</span><br>輸送コストも低い</td>
+        </tr>
+        <tr>
+          <td><strong>騒音・振動</strong></td>
+          <td class="col-tetsu"><span class="bad">大きい</span><br>走行時の金属音が発生</td>
+          <td class="col-pla"><span class="good">小さい</span><br>樹脂素材で音が吸収される</td>
+        </tr>
+        <tr>
+          <td><strong>地盤への影響</strong></td>
+          <td class="col-tetsu">重量で地面が沈むことがある</td>
+          <td class="col-pla"><span class="good">接地面が広く地盤に優しい</span></td>
+        </tr>
+        <tr>
+          <td><strong>養生・床保護</strong></td>
+          <td class="col-tetsu"><span class="bad">不向き</span><br>養生用途には重すぎる</td>
+          <td class="col-pla"><span class="good">適している</span><br>既存の床面保護に使いやすい</td>
+        </tr>
+        <tr>
+          <td><strong>耐久性・寿命</strong></td>
+          <td class="col-tetsu"><span class="good">非常に長い</span><br>適切なメンテナンスで長期使用可能</td>
+          <td class="col-pla">製品・使用条件による<br>鉄板より短い場合もある</td>
+        </tr>
+        <tr>
+          <td><strong>錆・腐食</strong></td>
+          <td class="col-tetsu"><span class="bad">錆びる</span><br>定期的な防錆処理が必要</td>
+          <td class="col-pla"><span class="good">錆びない・腐食しない</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>4. どちらを選ぶべきか？用途別の目安</h2>
+
+    <div class="usecase-grid">
+      <div class="usecase-card tetsu">
+        <h3>🔩 敷鉄板が向いているケース</h3>
+        <ul>
+          <li>大型クレーン・大型ダンプなど重量のある重機が走行する現場</li>
+          <li>長期間・繰り返し使用する大規模な土木工事</li>
+          <li>地盤が極めて軟弱で高荷重に耐える敷板が必要な現場</li>
+          <li>既にレンタル会社に敷鉄板の在庫が豊富な場合</li>
+        </ul>
+      </div>
+      <div class="usecase-card pla">
+        <h3>🟩 プラシキが向いているケース</h3>
+        <ul>
+          <li>住宅街など騒音・振動が問題になりやすい現場</li>
+          <li>短期の工事で設置・撤収をすばやく行いたい現場</li>
+          <li>既存の床・アスファルトを傷つけずに保護したい場合</li>
+          <li>人力で設置できる軽量資材が求められる現場</li>
+          <li>ぬかるみや芝生など環境への配慮が必要な現場</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="info-box-title">💡 迷ったときのシンプルな判断基準</div>
+      <p>「重機の総重量が20トンを超えるかどうか」が一つの目安です。超える場合は敷鉄板、それ以下であればプラシキで十分対応できることが多いです。ただし、現場の地盤状況・工期・騒音条件によっても変わるため、レンタル会社に相談しながら決めることをお勧めします。</p>
+    </div>
+
+    <h2>5. 費用の目安（レンタル）</h2>
+    <p>敷板のレンタル費用は、サイズ・枚数・使用期間・地域によって大きく異なります。おおまかな目安は以下のとおりです。</p>
+    <ul>
+      <li><strong>敷鉄板（1,000×2,000mm程度）</strong>：月額500円〜1,500円/枚程度＋輸送費・重機代</li>
+      <li><strong>プラシキ（1,000×2,000mm程度）</strong>：月額300円〜1,000円/枚程度＋輸送費</li>
+    </ul>
+    <p>必要な枚数が多い場合、輸送コストの差が大きく出ます。プラシキは軽量なためトラック1台に多く積めるため、輸送費が抑えられるケースがあります。複数社に見積もりを依頼して比較することをお勧めします。</p>
+
+    <h2>6. まとめ</h2>
+    <p>敷鉄板とプラシキ（プラスチック敷板）は、それぞれ得意とする場面が異なります。大型重機が走る本格的な土木現場では敷鉄板が頼りになる一方、住宅地の工事や短期現場・床養生ではプラシキの軽さと取り回しの良さが光ります。</p>
+    <p>最近では、プラシキの耐荷重性能が向上し、以前は敷鉄板しか選択肢がなかった場面でも使えるケースが増えています。現場の条件と費用を照らし合わせながら、最適な敷板を選んでください。</p>
+
+  </div><!-- /article-body -->
+
+  <div class="cta-block">
+    <h3>🔍 敷板を取り扱う仮設資材会社を探す</h3>
+    <p>都道府県・商品カテゴリから、現場に合った会社をすぐに見つけられます</p>
+    <a href="kasetsu-search.html" class="cta-btn">会社を探す →</a>
+  </div>
+
+  <h2 class="section-title">📖 関連記事</h2>
+  <div class="related-grid">
+    <a href="article-kasetsu-selection.html" class="related-item">📋 仮設資材の選び方ガイド</a>
+    <a href="article-industry-trivia.html" class="related-item">🏗️ 仮設資材業界の豆知識</a>
+    <a href="article-rensaku-howto.html" class="related-item">📘 レンサクの使い方ガイド</a>
+    <a href="kasetsu-search.html" class="related-item">🔍 全国の仮設資材会社を探す</a>
+  </div>
+
+</div><!-- /article-wrap -->
+
+<footer class="site-footer">
+  <p>
+    <a href="kasetsu-search.html">レンサク</a> ｜
+    <a href="kasetsu-search.html">会社を探す</a> ｜
+    <a href="about.html">運営者情報</a> ｜
+    <a href="privacy.html">プライバシーポリシー</a> ｜
+    <a href="contact.html">お問い合わせ</a>
+  </p>
+  <p>© 2026 レンサク. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

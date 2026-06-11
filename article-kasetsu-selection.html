@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仮設資材の選び方｜現場で失敗しないための基礎知識｜レンサク</title>
+  <meta name="description" content="建設現場で必要な仮設資材を選ぶときのポイントを解説。足場・仮設ハウス・冷暖房・安全資材など用途別の選び方と、レンタルで費用を抑えるコツをわかりやすく説明します。">
+  <link rel="canonical" href="https://rensaku.com/article-kasetsu-selection.html">
+  <meta property="og:title" content="仮設資材の選び方｜現場で失敗しないための基礎知識｜レンサク">
+  <meta property="og:description" content="建設現場で必要な仮設資材を選ぶときのポイントを解説。足場・仮設ハウス・冷暖房・安全資材など用途別の選び方。">
+  <meta property="og:url" content="https://rensaku.com/article-kasetsu-selection.html">
+  <meta property="og:type" content="article">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1a56db;
+      --primary-dark: #1341b0;
+      --accent: #f59e0b;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --radius: 12px;
+      --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+    }
+    body { font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+
+    .site-header {
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 0 24px; display: flex; align-items: center; gap: 16px;
+      height: 56px; position: sticky; top: 0; z-index: 100;
+    }
+    .site-logo { font-size: 20px; font-weight: 800; color: var(--primary); letter-spacing: -.5px; }
+    .site-nav { display: flex; gap: 20px; margin-left: auto; font-size: 14px; }
+    .site-nav a:hover { color: var(--primary); }
+
+    .breadcrumb {
+      max-width: 860px; margin: 0 auto; padding: 12px 24px 0;
+      font-size: 13px; color: var(--text-muted); display: flex; gap: 6px; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--primary); }
+    .breadcrumb span::before { content: '›'; margin-right: 6px; }
+
+    .hero {
+      background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+      color: #fff; padding: 48px 24px 40px; text-align: center;
+    }
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
+      border-radius: 99px; padding: 4px 14px;
+      font-size: 13px; font-weight: 600; margin-bottom: 16px;
+    }
+    .hero h1 { font-size: clamp(20px, 5vw, 32px); font-weight: 800; letter-spacing: -.5px; margin-bottom: 12px; }
+    .hero p { font-size: 15px; opacity: .85; max-width: 560px; margin: 0 auto; }
+
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 40px 24px 60px; }
+
+    .article-meta {
+      display: flex; gap: 16px; font-size: 13px; color: var(--text-muted);
+      margin-bottom: 32px; flex-wrap: wrap;
+    }
+    .meta-tag {
+      background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd;
+      border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 500;
+    }
+
+    .article-body h2 {
+      font-size: 20px; font-weight: 800; margin: 40px 0 16px;
+      padding-left: 12px; border-left: 4px solid var(--primary);
+      line-height: 1.4;
+    }
+    .article-body h3 {
+      font-size: 16px; font-weight: 700; margin: 28px 0 10px; color: var(--text);
+    }
+    .article-body p {
+      font-size: 15px; line-height: 1.85; color: #334155; margin-bottom: 16px;
+    }
+    .article-body ul, .article-body ol {
+      margin: 12px 0 20px 20px; font-size: 15px; line-height: 1.8; color: #334155;
+    }
+    .article-body li { margin-bottom: 6px; }
+
+    .info-box {
+      background: #f0f9ff; border: 1px solid #bae6fd; border-radius: var(--radius);
+      padding: 20px 24px; margin: 24px 0;
+    }
+    .info-box-title { font-size: 14px; font-weight: 700; color: #0369a1; margin-bottom: 8px; }
+    .info-box p { font-size: 14px; color: #334155; margin: 0; }
+
+    .point-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin: 20px 0 28px; }
+    .point-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px 18px;
+      box-shadow: var(--shadow);
+    }
+    .point-card .point-num { font-size: 11px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+    .point-card .point-title { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .point-card p { font-size: 13px; color: var(--text-muted); margin: 0; line-height: 1.6; }
+
+    .cta-block {
+      background: linear-gradient(135deg, #1e40af, #1d4ed8);
+      border-radius: var(--radius); padding: 32px; text-align: center; margin-top: 48px; color: #fff;
+    }
+    .cta-block h3 { font-size: 18px; font-weight: 800; margin-bottom: 10px; }
+    .cta-block p { font-size: 14px; opacity: .85; margin-bottom: 20px; }
+    .cta-btn {
+      display: inline-block; background: #fff; color: var(--primary);
+      font-weight: 700; font-size: 15px; padding: 12px 32px;
+      border-radius: 8px; transition: opacity .2s;
+    }
+    .cta-btn:hover { opacity: .9; }
+
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin-top: 16px; }
+    .related-item {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px 16px;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; transition: border-color .15s;
+    }
+    .related-item:hover { border-color: var(--primary); }
+
+    .section-title {
+      font-size: 18px; font-weight: 800; margin: 48px 0 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-title::after {
+      content: ''; flex: 1; height: 2px;
+      background: linear-gradient(to right, var(--border), transparent);
+    }
+
+    .site-footer {
+      background: #0f172a; color: rgba(255,255,255,.6);
+      text-align: center; padding: 28px 24px; font-size: 13px;
+    }
+    .site-footer a { color: rgba(255,255,255,.8); }
+    .site-footer p { margin-bottom: 8px; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 32px 16px 28px; }
+      .point-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "仮設資材の選び方｜現場で失敗しないための基礎知識",
+    "description": "建設現場で必要な仮設資材を選ぶときのポイントを解説。足場・仮設ハウス・冷暖房・安全資材など用途別の選び方と、レンタルで費用を抑えるコツ。",
+    "publisher": { "@type": "Organization", "name": "レンサク", "url": "https://rensaku.com" }
+  }
+  </script>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="kasetsu-search.html" class="site-logo">レンサク</a>
+  <nav class="site-nav">
+    <a href="kasetsu-search.html">会社を探す</a>
+    <a href="article-list.html">記事一覧</a>
+  </nav>
+</header>
+
+<nav class="breadcrumb" aria-label="パンくずリスト">
+  <a href="kasetsu-search.html">レンサク</a>
+  <span>記事</span>
+  <span>仮設資材の選び方</span>
+</nav>
+
+<section class="hero">
+  <div class="hero-label">📚 基礎知識</div>
+  <h1>仮設資材の選び方<br>現場で失敗しないための基礎知識</h1>
+  <p>種類・用途・レンタル費用のポイントをわかりやすく解説します</p>
+</section>
+
+<div class="article-wrap">
+  <div class="article-meta">
+    <span>📅 2026年6月</span>
+    <span class="meta-tag">仮設資材</span>
+    <span class="meta-tag">レンタル</span>
+    <span class="meta-tag">基礎知識</span>
+  </div>
+
+  <div class="article-body">
+
+    <p>建設現場では「仮設資材」と呼ばれる一時的な設備・機材が欠かせません。足場や仮設ハウス、冷暖房機器など多岐にわたる仮設資材ですが、「どれを選べばいいかわからない」「見積もりが高くて困っている」という声をよく聞きます。このページでは、仮設資材を選ぶときに押さえておきたいポイントを用途別に解説します。</p>
+
+    <h2>1. 仮設資材とは？まず全体像を把握しよう</h2>
+    <p>仮設資材とは、建設・土木・イベントなどの現場で一時的に使用する設備・機器の総称です。工事完了後には撤去・返却することが前提のため、購入ではなくレンタル（賃貸）で調達するのが一般的です。</p>
+    <p>主な仮設資材の種類は以下のとおりです。</p>
+    <ul>
+      <li><strong>足場・作業台</strong>：建物の外壁工事や高所作業に使用する作業用の架台</li>
+      <li><strong>仮設ハウス・トイレ</strong>：現場事務所や作業員の休憩所、仮設トイレ</li>
+      <li><strong>冷暖房・空調機器</strong>：スポットクーラー・仮設エアコン・ジェットヒーターなど</li>
+      <li><strong>安全資材</strong>：仮囲いフェンス・コーン・カラーコーンバーなど</li>
+      <li><strong>電気・動力</strong>：発電機・仮設電灯・投光器</li>
+      <li><strong>土木・排水</strong>：水中ポンプ・ウォーターゲート・土嚢</li>
+    </ul>
+
+    <h2>2. 仮設資材を選ぶ5つのポイント</h2>
+    <p>資材選びで失敗しないために、以下の5点を必ず確認しましょう。</p>
+
+    <div class="point-grid">
+      <div class="point-card">
+        <div class="point-num">POINT 01</div>
+        <div class="point-title">使用期間を明確にする</div>
+        <p>レンタル費用は使用日数で変わります。短期・長期で料金体系が異なるため、工期をあらかじめ業者に伝えると見積もりが正確になります。</p>
+      </div>
+      <div class="point-card">
+        <div class="point-num">POINT 02</div>
+        <div class="point-title">現場の環境に合わせる</div>
+        <p>屋外・屋内、夏季・冬季、面積・人数など条件が違えば必要な機材のスペックも変わります。スポットクーラーなら冷房能力（kW）が重要です。</p>
+      </div>
+      <div class="point-card">
+        <div class="point-num">POINT 03</div>
+        <div class="point-title">搬入・搬出の条件を確認</div>
+        <p>大型機材は搬入車両の大きさや経路に制約があります。現場住所と搬入条件を業者に事前共有するとスムーズです。</p>
+      </div>
+      <div class="point-card">
+        <div class="point-num">POINT 04</div>
+        <div class="point-title">故障時の対応を聞いておく</div>
+        <p>レンタル中に機材が故障した場合、代替機の手配や修理対応が迅速かどうかを事前に確認しましょう。現場が止まるリスクを最小化できます。</p>
+      </div>
+      <div class="point-card">
+        <div class="point-num">POINT 05</div>
+        <div class="point-title">複数社から相見積もりを取る</div>
+        <p>同じ機材でも業者によって料金・サービス内容が大きく異なります。2〜3社から見積もりを取ることで適正価格を把握できます。</p>
+      </div>
+    </div>
+
+    <h2>3. カテゴリ別：選び方のポイント</h2>
+
+    <h3>🏗️ 足場・作業台</h3>
+    <p>足場は「くさび緊結式足場（ビケ足場）」「枠組み足場」「単管足場」など種類があります。一般的な建物の外壁工事にはビケ足場、大規模な建設現場では枠組み足場が使われます。高さや荷重条件を業者に正確に伝えることが大切です。</p>
+
+    <h3>🏠 仮設ハウス・仮設トイレ</h3>
+    <p>現場事務所として使う仮設ハウスは、作業人数に合わせた広さを選びましょう。冷暖房・照明・机・椅子がセットになったプランを提供する業者も多く、一括で手配できると現場の手間が省けます。仮設トイレは工事期間中の利用人数を目安に台数を決めます。目安は「20人につき1台」程度です。</p>
+
+    <h3>❄️ 冷暖房・空調機器</h3>
+    <p>夏の熱中症対策・冬の防寒対策として仮設の冷暖房機器は非常に重要です。スポットクーラーは狭いエリアのスポット冷却に、仮設エアコンは広い空間の冷暖房に向いています。ジェットヒーターは短時間で広い空間を温められるため、冬期の建設現場や工場での利用が一般的です。</p>
+
+    <div class="info-box">
+      <div class="info-box-title">💡 冷暖房機器を選ぶ際の目安</div>
+      <p>木造住宅の場合、6畳あたり冷房2.2kW・暖房2.5kWが一般的な目安です。建設現場の仮設ハウスや工場・倉庫では断熱が不十分なことも多いため、余裕を持った容量の機器を選ぶことをお勧めします。</p>
+    </div>
+
+    <h3>🔲 安全・仮囲い資材</h3>
+    <p>工事現場の周囲を区画するフェンスや仮囲いは、近隣への安全配慮と法的な義務の両面から重要です。高さ・材質（鋼板・メッシュなど）・設置期間を踏まえて選びましょう。交通誘導用のコーンや看板も合わせて手配できる業者を選ぶと効率的です。</p>
+
+    <h2>4. レンタルと購入、どちらが得か？</h2>
+    <p>仮設資材は原則として「使用期間が限定的」なためレンタルが有利です。ただし、同じ機材を繰り返し使う場合や使用頻度が高い場合は購入を検討する価値があります。判断の目安は「購入費用 ÷ 月額レンタル料」で算出できます。この月数を超えて使い続けるなら購入が得になります。</p>
+    <p>また、保管・メンテナンスのコストも考慮しましょう。レンタルであれば点検・整備は業者側で行うため、機材管理の手間がかかりません。</p>
+
+    <h2>5. 信頼できる業者の見つけ方</h2>
+    <p>仮設資材の業者を選ぶとき、料金だけで判断するのは危険です。以下の点も合わせて確認しましょう。</p>
+    <ul>
+      <li>対応エリアが現場の所在地をカバーしているか</li>
+      <li>必要な機材の在庫・台数が揃っているか</li>
+      <li>緊急時（故障・追加注文）の対応体制があるか</li>
+      <li>実績・口コミ・担当者の対応が誠実か</li>
+    </ul>
+    <p>「レンサク」では、都道府県・商品カテゴリから仮設資材のレンタル会社を検索できます。複数社をまとめて確認して、相見積もりを取ることをお勧めします。</p>
+
+  </div><!-- /article-body -->
+
+  <div class="cta-block">
+    <h3>🔍 仮設資材のレンタル会社を探す</h3>
+    <p>都道府県・商品カテゴリから、現場に合った会社をすぐに見つけられます</p>
+    <a href="kasetsu-search.html" class="cta-btn">会社を探す →</a>
+  </div>
+
+  <h2 class="section-title">📖 関連記事</h2>
+  <div class="related-grid">
+    <a href="article-rensaku-howto.html" class="related-item">📘 レンサクの使い方ガイド</a>
+    <a href="article-industry-trivia.html" class="related-item">🏗️ 仮設資材業界の豆知識</a>
+    <a href="kasetsu-search.html" class="related-item">🔍 全国の仮設資材会社を探す</a>
+  </div>
+
+</div><!-- /article-wrap -->
+
+<footer class="site-footer">
+  <p>
+    <a href="kasetsu-search.html">レンサク</a> ｜
+    <a href="kasetsu-search.html">会社を探す</a> ｜
+    <a href="article-list.html">コラム一覧</a> ｜
+    <a href="about.html">運営者情報</a> ｜
+    <a href="privacy.html">プライバシーポリシー</a> ｜
+    <a href="contact.html">お問い合わせ</a>
+  </p>
+  <p>© 2026 レンサク. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

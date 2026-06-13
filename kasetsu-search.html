@@ -10218,7 +10218,6 @@
     }
 
 
-
     // ======================================================
     // 📚 コラムデータと自動表示のプログラム
     // ======================================================
@@ -10230,44 +10229,57 @@
         tag: "資材知識",
         date: "2026.06.14"
       }
-      // 💡 今後コラムを増やしたいときは、この下にカンマ（,）で区切って追加していけます！
     ];
 
     function renderColumns() {
       const container = document.getElementById('column-list');
-      if (!container) return; // 枠が見つからない場合はエラー防止のため処理を抜ける
+      if (!container) {
+        console.log("⚠️ コラムを表示する箱（id='column-list'）がHTML側に見つかりません！");
+        return;
+      }
 
       let html = '';
       columns.forEach(function (col) {
-        html += '<a href="' + col.url + '" style="background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); text-decoration: none; color: inherit; overflow: hidden; display: block; border: 1px solid #e2e8f0; transition: transform 0.2s;">'
-          + '<div style="padding: 20px;">'
-          + '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">'
-          + '<span style="background: #1a7fe8; color: white; font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: bold;">' + col.tag + '</span>'
-          + '<span style="font-size: 12px; color: #a0aec0;">' + col.date + '</span>'
+        // 💡 デザインを元のコラムブロック（角丸12px、青い枠線、文字色など）と完全に統一しました
+        html += '<a href="' + col.url + '" style="background: #fff; border: 1px solid #dceeff; border-radius: 12px; padding: 20px; text-decoration: none; color: #0d2f5c; display: block; transition: box-shadow .2s;" onmouseover="this.style.boxShadow=\'0 4px 16px rgba(0,0,0,.1)\'" onmouseout="this.style.boxShadow=\'none\'">'
+          + '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">'
+          + '<span style="font-size: 11px; font-weight: 700; color: #1a56db; background: #dbeafe; display: inline-block; padding: 2px 8px; border-radius: 4px;">' + col.tag + '</span>'
+          + '<span style="font-size: 12px; color: #64748b;">' + col.date + '</span>'
           + '</div>'
-          + '<h3 style="font-size: 16px; color: #0d2a4e; margin: 0 0 10px 0; line-height: 1.4; font-weight: bold;">' + col.title + '</h3>'
-          + '<p style="font-size: 13px; color: #5a738e; margin: 0; line-height: 1.5;">' + col.desc + '</p>'
-          + '</div>'
+          + '<div style="font-size: 15px; font-weight: 700; margin-bottom: 8px; line-height: 1.5;">' + col.title + '</div>'
+          + '<div style="font-size: 13px; color: #64748b; line-height: 1.6;">' + col.desc + '</div>'
           + '</a>';
       });
 
       container.innerHTML = html;
     }
 
+
     /* ======================================================
-       初期化
+       初期化（エラーが起きても絶対に途中で止まらない安全仕様）
     ====================================================== */
     function init() {
-      document.getElementById('stat-count').innerHTML = companies.length + '<span>社</span>';
-      filtered = companies.slice();
-      renderCards(filtered);
-      renderColumns(); // 💡 コラムを自動表示する命令を追加しました！
+      // 1. 社数表示のチェック（無ければスルー）
+      var statCountEl = document.getElementById('stat-count');
+      if (statCountEl && typeof companies !== 'undefined') {
+        statCountEl.innerHTML = companies.length + '<span>社</span>';
+      }
+
+      // 2. 企業カード描画のチェック（無ければスルー）
+      if (typeof companies !== 'undefined' && typeof renderCards === 'function') {
+        filtered = companies.slice();
+        renderCards(filtered);
+      }
+
+      // 3. コラムの自動表示（上の2つでエラーが起きても、これは確実に実行されます！）
+      renderColumns();
     }
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeModal();
     });
 
+    // プログラムを実行
     init();
   </script>
 

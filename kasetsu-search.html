@@ -7189,6 +7189,18 @@
       </div>
     </div>
   </section>
+  <section class="section"
+    style="background-color: #f8fafc; padding: 40px 20px; border-top: 1px solid #e2e8f0; font-family: 'Noto Sans JP', sans-serif;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2
+        style="font-size: 22px; color: #0d2a4e; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; font-weight: bold;">
+        📚 お役立ちコラム・特集
+      </h2>
+      <div id="column-list"
+        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+      </div>
+    </div>
+  </section>
   <footer>
     <div class="footer-inner">
       <div>
@@ -10208,17 +10220,49 @@
 
 
 
+    // ======================================================
+    // 📚 コラムデータと自動表示のプログラム
+    // ======================================================
+    const columns = [
+      {
+        title: "仮設レンタルで実は需要が高いニッチ商品4選！現場のプロが探す資材とは？",
+        url: "column-niche.html",
+        desc: "現場で手配が必須となる、安全・DX対策資材や快適トイレなどのニッチな需要について解説します。",
+        tag: "資材知識",
+        date: "2026.06.14"
+      }
+      // 💡 今後コラムを増やしたいときは、この下にカンマ（,）で区切って追加していけます！
+    ];
+
+    function renderColumns() {
+      const container = document.getElementById('column-list');
+      if (!container) return; // 枠が見つからない場合はエラー防止のため処理を抜ける
+
+      let html = '';
+      columns.forEach(function (col) {
+        html += '<a href="' + col.url + '" style="background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); text-decoration: none; color: inherit; overflow: hidden; display: block; border: 1px solid #e2e8f0; transition: transform 0.2s;">'
+          + '<div style="padding: 20px;">'
+          + '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">'
+          + '<span style="background: #1a7fe8; color: white; font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: bold;">' + col.tag + '</span>'
+          + '<span style="font-size: 12px; color: #a0aec0;">' + col.date + '</span>'
+          + '</div>'
+          + '<h3 style="font-size: 16px; color: #0d2a4e; margin: 0 0 10px 0; line-height: 1.4; font-weight: bold;">' + col.title + '</h3>'
+          + '<p style="font-size: 13px; color: #5a738e; margin: 0; line-height: 1.5;">' + col.desc + '</p>'
+          + '</div>'
+          + '</a>';
+      });
+
+      container.innerHTML = html;
+    }
+
     /* ======================================================
        初期化
     ====================================================== */
     function init() {
-      // 会社数の表示や初期描画
       document.getElementById('stat-count').innerHTML = companies.length + '<span>社</span>';
-      filtered = companies;
-      renderCompanies();
-
-      // 💡 ここにコラムを表示するための関数（例：renderColumnsなど）の呼び出しが必要です！
-      // renderColumns(); 
+      filtered = companies.slice();
+      renderCards(filtered);
+      renderColumns(); // 💡 コラムを自動表示する命令を追加しました！
     }
 
     document.addEventListener('keydown', function (e) {
@@ -10227,6 +10271,13 @@
 
     init();
   </script>
+
+</body>
+
+</html>
+</body>
+
+</html>
 
 </body>
 

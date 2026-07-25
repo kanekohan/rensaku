@@ -431,4 +431,12 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 東京特化コラム -->
+  <url>
+    <loc>https://rensaku.com/tokyo-kakoifen-column.html</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

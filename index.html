@@ -5740,7 +5740,8 @@
     </div>
   </section>
 
-  <!-- 🌞 熱中症対策・夏季レンタル検索セクション -->
+  <!-- ❄️ 冬のレンタル検索セクション -->
+  <!-- 夏用セクション（来年の夏前に戻す場合は、下のコメントを外して冬セクションと差し替える）
   <section style="padding:80px 24px; background:#fff;">
     <div style="max-width:1200px; margin:0 auto;">
       <div
@@ -5791,8 +5792,39 @@
       </div>
     </div>
   </section>
-
-
+  -->
+  <section id="winter-rental" style="padding:80px 24px; background:#fff;">
+    <div style="max-width:1200px; margin:0 auto;">
+      <div
+        style="font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#1a7fe8; margin-bottom:8px;">
+        WINTER RENTAL</div>
+      <div style="font-size:28px; font-weight:800; color:#0d2f5c; margin-bottom:12px;">❄️ 冬の現場で使うレンタル品から探す</div>
+      <p style="font-size:13px; color:#5a7fa8; line-height:1.7; margin-bottom:32px;">項目を選ぶと、上の一覧が取扱品目で絞り込まれます。登録数は、当サイトに登録されている取扱品目をもとにした数です。在庫・料金・対応エリアは各社へご確認ください。</p>
+      <div class="cat-grid">
+        <div class="cat-item" style="cursor:pointer; transition:all 0.3s; border:1px solid #e2e8f0; border-radius:12px;"
+          onclick="jumpMinor('仮設冷暖房・空調','ジェットヒーター')" role="button" tabindex="0">
+          <div class="cat-icon">🔥</div>
+          <div class="cat-name">ジェットヒーター</div>
+          <div class="cat-subs">仮設冷暖房・空調</div>
+          <div class="cat-subs" style="margin-top:6px;">登録 <strong class="winter-count" data-minor="ジェットヒーター">-</strong> 社</div>
+        </div>
+        <div class="cat-item" style="cursor:pointer; transition:all 0.3s; border:1px solid #e2e8f0; border-radius:12px;"
+          onclick="jumpMinor('仮設冷暖房・空調','仮設エアコン')" role="button" tabindex="0">
+          <div class="cat-icon">♨️</div>
+          <div class="cat-name">仮設エアコン</div>
+          <div class="cat-subs">仮設冷暖房・空調</div>
+          <div class="cat-subs" style="margin-top:6px;">登録 <strong class="winter-count" data-minor="仮設エアコン">-</strong> 社</div>
+        </div>
+        <div class="cat-item" style="cursor:pointer; transition:all 0.3s; border:1px solid #e2e8f0; border-radius:12px;"
+          onclick="jumpMinor('仮設照明・投光器','仮設照明・投光器')" role="button" tabindex="0">
+          <div class="cat-icon">💡</div>
+          <div class="cat-name">仮設照明・投光器</div>
+          <div class="cat-subs">仮設照明・投光器</div>
+          <div class="cat-subs" style="margin-top:6px;">登録 <strong class="winter-count" data-minor="仮設照明・投光器">-</strong> 社</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <section style="background:#f0f6ff; padding:60px 24px; border-top:1px solid #dceeff;">
@@ -8698,6 +8730,33 @@
       }
     }
 
+    /* 冬のレンタル検索：大カテゴリ＋小カテゴリで絞り込む */
+    function jumpMinor(major, minor) {
+      activeMajor = major;
+      activeFilter = minor;
+      document.querySelectorAll('#major-cats .filter-tag').forEach(function (b) {
+        b.classList.toggle('active', b.textContent.trim().indexOf(major) !== -1);
+      });
+      var minorWrap = document.getElementById('minor-cats');
+      var minorRow = document.getElementById('minor-cats-row');
+      minorRow.innerHTML = (CATEGORY_MASTER[major] || []).map(function (sub, i) {
+        return '<button class="filter-tag-minor' + (sub === minor ? ' active' : '') + '" style="animation-delay:' + (i * 0.06) + 's" onclick="selectMinor(this,\'' + sub + '\')">' + sub + '</button>';
+      }).join('');
+      minorWrap.classList.add('open');
+      updateBadge();
+      filterCompanies();
+      setTimeout(function () {
+        document.getElementById('companies').scrollIntoView({ behavior: 'smooth' });
+      }, 200);
+    }
+
+    function updateWinterCounts() {
+      document.querySelectorAll('.winter-count').forEach(function (el) {
+        var m = el.getAttribute('data-minor');
+        el.textContent = companies.filter(function (c) { return c.products.indexOf(m) !== -1; }).length;
+      });
+    }
+
     // 拡張機能やキーボード操作の対応（外枠クリックやEscキーで閉じる）
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeModal();
@@ -8705,6 +8764,7 @@
 
     // ページを開いた瞬間にシステムを起動
     init();
+    updateWinterCounts();
   </script>
 
 </body>
